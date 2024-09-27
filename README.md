@@ -1,8 +1,7 @@
-- 👋 Hi, I’m @Epeboi
-- 👀 I’m interested in learning to build websites
-- 🌱 I’m currently learning html, css, javascript
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+- 👋 Hi, I’m @esaHak
+- 👀 I’m a marketer who is not going to be scared of code any longer - 50% chance I'm learning web technologies as you read this
+- 🌱 I’m currently learning html, css, javascript, ...and more?
+- 📫 How to reach me ... - will update when I'm no longer scared to show face.
 
 <!---
 Epeboi/Epeboi is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
