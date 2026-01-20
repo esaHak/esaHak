@@ -1,0 +1,53 @@
+---
+layout: default
+title: Guides
+description: In-depth guides on digital marketing, SEO, and building online businesses.
+permalink: /guides/
+---
+
+<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">Guides</h1>
+    <p class="page-description">
+      In-depth resources on digital marketing, SEO, and building online.
+    </p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container-wide">
+    {% if site.seo_pages.size > 0 %}
+
+    {% assign categories = site.seo_pages | map: "category" | uniq %}
+
+    {% for category in categories %}
+    <div class="mb-3">
+      <h2>{{ category }}</h2>
+      <div class="card-grid">
+        {% assign category_pages = site.seo_pages | where: "category", category %}
+        {% for page in category_pages %}
+        <a href="{{ page.url | relative_url }}" class="card">
+          <span class="seo-category">{{ page.category }}</span>
+          <h3 style="margin-top: var(--spacing-sm);">{{ page.title }}</h3>
+          <p style="color: var(--color-text-light);">{{ page.description | truncate: 120 }}</p>
+          {% if page.keywords %}
+          <div class="project-tech" style="margin-top: auto;">
+            {% for keyword in page.keywords limit: 3 %}
+            <span class="tech-tag">{{ keyword }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <div class="card text-center">
+      <h3>Guides coming soon</h3>
+      <p>I'm working on comprehensive guides for various topics. Check back soon!</p>
+    </div>
+    {% endif %}
+  </div>
+</section>

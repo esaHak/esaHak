@@ -1,19 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esa Hakulisen kotisivu</title>
-</head>
-<body>
-    <header>
-        <h1>Esa Hakulisen kotisivu</h1>
-    </header>
-    <main>
-        <p>Tervetuloa</p>
-    </main>
-    <footer>
-        <p></p>
-    </footer>
-</body>
-</html>
+---
+layout: default
+title: Home
+description: Digital marketing expertise, experiments, and insights. Building in public.
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Hi, I'm Esa Hakulinen</h1>
+    <p class="hero-subtitle">
+      Digital marketer building in public. I experiment with projects, share what I learn,
+      and document the journey along the way.
+    </p>
+    <div class="hero-cta">
+      <a href="/projects/" class="btn btn-primary">View Projects</a>
+      <a href="/blog/" class="btn btn-secondary">Read the Blog</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div class="section-header">
+      <h2 class="section-title">Latest Projects</h2>
+      <p class="section-subtitle">Experiments and builds I'm currently working on</p>
+    </div>
+
+    <div class="project-grid">
+      {% assign recent_projects = site.projects | sort: 'date' | reverse | limit: 3 %}
+      {% for project in recent_projects %}
+      <a href="{{ project.url | relative_url }}" class="project-card">
+        {% if project.image %}
+        <div class="project-card-image">
+          <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+        </div>
+        {% else %}
+        <div class="project-card-image" style="display: flex; align-items: center; justify-content: center;">
+          <span style="color: var(--color-text-light);">{{ project.title | truncate: 20 }}</span>
+        </div>
+        {% endif %}
+        <div class="project-card-content">
+          <div class="project-status">
+            {% if project.status == 'live' %}
+            <span class="status status-live">Live</span>
+            {% elsif project.status == 'in-progress' %}
+            <span class="status status-progress">In Progress</span>
+            {% elsif project.status == 'experiment' %}
+            <span class="status status-experiment">Experiment</span>
+            {% endif %}
+          </div>
+          <h3 class="project-card-title">{{ project.title }}</h3>
+          <p class="project-card-description">{{ project.description }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-2">
+      <a href="/projects/" class="btn btn-secondary">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container-wide">
+    <div class="section-header">
+      <h2 class="section-title">Recent Posts</h2>
+      <p class="section-subtitle">Thoughts, learnings, and insights from my experiments</p>
+    </div>
+
+    {% assign recent_posts = site.posts | limit: 3 %}
+    {% for post in recent_posts %}
+    <a href="{{ post.url | relative_url }}" class="post-card">
+      <h3 class="post-card-title">{{ post.title }}</h3>
+      <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 160 }}</p>
+      <div class="post-card-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+        {% if post.categories %}
+        <span> · {{ post.categories | first }}</span>
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+
+    <div class="text-center mt-2">
+      <a href="/blog/" class="btn btn-secondary">Read All Posts</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Building in Public</h2>
+      <p class="section-subtitle">Why I share my work openly</p>
+    </div>
+
+    <p>
+      I believe in learning by doing and sharing the journey—wins, failures, and everything in between.
+      This site is where I document my experiments in digital marketing, programmatic SEO,
+      and various side projects.
+    </p>
+
+    <p>
+      Whether you're here to learn from my experiences or just curious about what I'm building,
+      welcome! Feel free to reach out if you have questions or want to collaborate.
+    </p>
+
+    <div class="text-center mt-2">
+      <a href="/about/" class="btn btn-primary">Learn More About Me</a>
+    </div>
+  </div>
+</section>

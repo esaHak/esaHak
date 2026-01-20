@@ -1,0 +1,96 @@
+# =============================================================================
+# SITE CONFIGURATION
+# =============================================================================
+# This is the main configuration file for your Jekyll site.
+# Edit the values below to customize your site.
+
+# Basic Site Settings
+title: "Esa Hakulinen"
+description: "Digital marketing expertise, experiments, and insights. Building in public."
+url: "https://esahakulinen.fi"
+baseurl: ""
+
+# Author Information
+author:
+  name: "Esa Hakulinen"
+  email: ""  # Add your email if you want
+  bio: "Digital marketer experimenting with projects and sharing expertise."
+  twitter: ""  # Add your Twitter handle (without @)
+  linkedin: ""  # Add your LinkedIn username
+  github: ""  # Add your GitHub username
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:title/
+
+# Collections - These are the different content types on your site
+# Each collection can have its own folder and layout
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  seo_pages:
+    output: true
+    permalink: /guides/:path/
+
+# Default front matter for different content types
+# This saves you from repeating the same settings in every file
+defaults:
+  # Blog posts
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Esa Hakulinen"
+  # Projects
+  - scope:
+      path: "_projects"
+      type: "projects"
+    values:
+      layout: "project"
+  # SEO Pages
+  - scope:
+      path: "_seo_pages"
+      type: "seo_pages"
+    values:
+      layout: "seo_page"
+  # Regular pages
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Plugins (these work with GitHub Pages)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude files from the build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - "*.sh"
+  - CONTENT_GUIDE.md
+
+# =============================================================================
+# SEO SETTINGS
+# =============================================================================
+# These help search engines understand your site
+
+# For social media sharing
+twitter:
+  card: summary_large_image
+
+# For Google and other search engines
+google_analytics: ""  # Add your GA tracking ID when ready
+
+# Open Graph defaults
+og_image: "/assets/images/og-default.png"

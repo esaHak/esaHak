@@ -1,0 +1,68 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <div class="container">
+      {% if page.categories %}
+      <div class="post-categories">
+        {% for category in page.categories %}
+        <span class="category">{{ category }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <h1 class="post-title">{{ page.title }}</h1>
+
+      {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+      {% endif %}
+
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">
+          {{ page.date | date: "%B %d, %Y" }}
+        </time>
+        {% if page.read_time %}
+        <span class="read-time">{{ page.read_time }} min read</span>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  {% if page.image %}
+  <div class="post-image">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  </div>
+  {% endif %}
+
+  <div class="post-content container">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer container">
+    {% if page.tags %}
+    <div class="post-tags">
+      {% for tag in page.tags %}
+      <a href="{{ '/blog/tags/' | relative_url }}#{{ tag | slugify }}" class="tag">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="post-author">
+      <p>Written by <strong>{{ page.author | default: site.author.name }}</strong></p>
+    </div>
+
+    <div class="post-nav">
+      {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}" class="post-nav-prev">
+        &larr; {{ page.previous.title }}
+      </a>
+      {% endif %}
+      {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}" class="post-nav-next">
+        {{ page.next.title }} &rarr;
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</article>

@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<article class="seo-page">
+  <header class="seo-header">
+    <div class="container">
+      {% if page.category %}
+      <span class="seo-category">{{ page.category }}</span>
+      {% endif %}
+
+      <h1 class="seo-title">{{ page.title }}</h1>
+
+      {% if page.description %}
+      <p class="seo-description">{{ page.description }}</p>
+      {% endif %}
+
+      {% if page.last_updated %}
+      <p class="seo-updated">Last updated: {{ page.last_updated | date: "%B %d, %Y" }}</p>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="seo-content container">
+    {{ content }}
+  </div>
+
+  {% if page.related_pages %}
+  <section class="related-content container">
+    <h2>Related Guides</h2>
+    <div class="related-grid">
+      {% for related in page.related_pages %}
+      {% assign related_page = site.seo_pages | where: "slug", related | first %}
+      {% if related_page %}
+      <a href="{{ related_page.url | relative_url }}" class="related-card">
+        <h3>{{ related_page.title }}</h3>
+        <p>{{ related_page.description | truncate: 100 }}</p>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if page.cta %}
+  <section class="seo-cta container">
+    <div class="cta-box">
+      <h3>{{ page.cta.title }}</h3>
+      <p>{{ page.cta.description }}</p>
+      <a href="{{ page.cta.url }}" class="btn btn-primary">{{ page.cta.button }}</a>
+    </div>
+  </section>
+  {% endif %}
+</article>

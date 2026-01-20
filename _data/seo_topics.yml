@@ -1,0 +1,76 @@
+# =============================================================================
+# SEO TOPICS DATA FILE
+# =============================================================================
+# This file powers programmatic SEO pages.
+# Add entries here and Jekyll will automatically generate pages for each topic.
+#
+# HOW TO USE:
+# 1. Add a new topic entry below with all required fields
+# 2. Jekyll will generate a page at /guides/[slug]/
+# 3. The page uses the seo_page layout with your data
+#
+# EXAMPLE: If you add a topic with slug "email-marketing-basics",
+# it creates a page at: https://esahakulinen.fi/guides/email-marketing-basics/
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Digital Marketing Topics (Example Category)
+# -----------------------------------------------------------------------------
+
+- title: "What is Content Marketing? A Complete Guide"
+  slug: content-marketing-guide
+  category: Digital Marketing
+  description: "Learn everything about content marketing - from strategy to execution. A comprehensive guide for beginners and professionals."
+  last_updated: 2025-01-20
+  keywords:
+    - content marketing
+    - content strategy
+    - digital marketing
+  sections:
+    - heading: "What is Content Marketing?"
+      content: "Content marketing is a strategic marketing approach focused on creating and distributing valuable, relevant, and consistent content to attract and retain a clearly defined audience."
+    - heading: "Why Content Marketing Matters"
+      content: "In today's digital landscape, consumers are overwhelmed with advertising. Content marketing cuts through the noise by providing genuine value."
+    - heading: "Key Content Marketing Strategies"
+      content: "Successful content marketing requires a clear strategy including audience research, content planning, creation, distribution, and measurement."
+  related_pages:
+    - seo-basics-guide
+
+- title: "SEO Basics: A Beginner's Guide to Search Engine Optimization"
+  slug: seo-basics-guide
+  category: SEO
+  description: "Master the fundamentals of SEO. Learn how search engines work and how to optimize your content for better rankings."
+  last_updated: 2025-01-20
+  keywords:
+    - SEO
+    - search engine optimization
+    - Google ranking
+  sections:
+    - heading: "What is SEO?"
+      content: "Search Engine Optimization (SEO) is the practice of optimizing your website and content to rank higher in search engine results pages (SERPs)."
+    - heading: "How Search Engines Work"
+      content: "Search engines use crawlers to discover and index content, then use algorithms to determine which pages best answer a user's query."
+    - heading: "On-Page SEO Fundamentals"
+      content: "On-page SEO includes optimizing titles, meta descriptions, headers, content quality, internal linking, and page speed."
+  related_pages:
+    - content-marketing-guide
+
+# -----------------------------------------------------------------------------
+# HOW TO ADD MORE TOPICS
+# -----------------------------------------------------------------------------
+# Copy the template below and fill in your details:
+#
+# - title: "Your Page Title"
+#   slug: your-page-slug
+#   category: Category Name
+#   description: "A compelling description for search results."
+#   last_updated: YYYY-MM-DD
+#   keywords:
+#     - keyword 1
+#     - keyword 2
+#   sections:
+#     - heading: "Section Title"
+#       content: "Section content goes here..."
+#   related_pages:
+#     - other-page-slug
+# -----------------------------------------------------------------------------
