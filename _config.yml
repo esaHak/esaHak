@@ -15,6 +15,7 @@ author:
   name: "Esa Hakulinen"
   email: ""  # Add your email if you want
   bio: "Digital marketer experimenting with projects and sharing expertise."
+  avatar: "/assets/images/author/profile.jpg"  # Author profile image
   twitter: ""  # Add your Twitter handle (without @)
   linkedin: ""  # Add your LinkedIn username
   github: ""  # Add your GitHub username

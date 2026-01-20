@@ -2,6 +2,7 @@
 layout: default
 title: About
 description: Learn more about Esa Hakulinen - digital marketer, experimenter, and builder.
+image: /assets/images/pages/about.jpg
 permalink: /about/
 ---
 
@@ -13,6 +14,12 @@ permalink: /about/
 
 <section class="section">
   <div class="container">
+    {% if site.author.avatar %}
+    <div class="author-profile">
+      <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" class="author-avatar author-avatar-large">
+    </div>
+    {% endif %}
+
     <h2>Hi, I'm Esa</h2>
 
     <p>

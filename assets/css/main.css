@@ -378,13 +378,18 @@ img {
   font-size: 0.9rem;
 }
 
-.post-image {
+/* Hero images - shared styles for post, project, and seo pages */
+.post-image,
+.project-image,
+.seo-image {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
 }
 
-.post-image img {
+.post-image img,
+.project-image img,
+.seo-image img {
   width: 100%;
   border-radius: var(--radius-lg);
 }
@@ -955,4 +960,57 @@ img {
   color: var(--color-text-light);
   max-width: 600px;
   margin: 0 auto;
+}
+
+/* -----------------------------------------------------------------------------
+   Image Figures (for image.html include)
+----------------------------------------------------------------------------- */
+.image-figure {
+  margin: var(--spacing-xl) 0;
+  padding: 0;
+}
+
+.image-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+.image-figure figcaption {
+  margin-top: var(--spacing-sm);
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  text-align: center;
+  font-style: italic;
+}
+
+/* -----------------------------------------------------------------------------
+   Author Avatar
+----------------------------------------------------------------------------- */
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-avatar-large {
+  width: 120px;
+  height: 120px;
+}
+
+.author-profile {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.post-author p {
+  margin: 0;
 }

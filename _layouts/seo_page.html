@@ -21,6 +21,12 @@ layout: default
     </div>
   </header>
 
+  {% if page.image %}
+  <div class="seo-image">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  </div>
+  {% endif %}
+
   <div class="seo-content container">
     {{ content }}
   </div>

@@ -50,6 +50,9 @@ layout: default
     {% endif %}
 
     <div class="post-author">
+      {% if site.author.avatar %}
+      <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" class="author-avatar">
+      {% endif %}
       <p>Written by <strong>{{ page.author | default: site.author.name }}</strong></p>
     </div>
 

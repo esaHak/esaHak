@@ -1,0 +1,41 @@
+{% comment %}
+Responsive image include with lazy loading and optional caption.
+
+Usage:
+  {% include image.html src="/assets/images/projects/my-image.jpg" alt="Description" %}
+
+Optional parameters:
+  - caption: Image caption text
+  - class: Additional CSS classes
+  - width: Image width attribute
+  - height: Image height attribute
+  - loading: "lazy" (default) or "eager"
+  - link: URL to wrap image in a link
+{% endcomment %}
+
+{% assign img_src = include.src %}
+{% assign img_alt = include.alt | default: "" %}
+{% assign img_class = include.class | default: "" %}
+{% assign img_loading = include.loading | default: "lazy" %}
+
+<figure class="image-figure {{ img_class }}">
+  {% if include.link %}
+  <a href="{{ include.link }}">
+  {% endif %}
+
+  <img
+    src="{{ img_src | relative_url }}"
+    alt="{{ img_alt }}"
+    loading="{{ img_loading }}"
+    {% if include.width %}width="{{ include.width }}"{% endif %}
+    {% if include.height %}height="{{ include.height }}"{% endif %}
+  >
+
+  {% if include.link %}
+  </a>
+  {% endif %}
+
+  {% if include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {% endif %}
+</figure>
