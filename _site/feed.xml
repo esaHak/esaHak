@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-20T17:44:39+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Esa Hakulinen</title><subtitle>Digital marketing expertise, experiments, and insights. Building in public.</subtitle><author><name>Esa Hakulinen</name><email></email></author><entry><title type="html">Welcome: Why I’m Building in Public</title><link href="http://localhost:4000/blog/welcome-building-in-public/" rel="alternate" type="text/html" title="Welcome: Why I’m Building in Public" /><published>2025-01-20T00:00:00+02:00</published><updated>2025-01-20T00:00:00+02:00</updated><id>http://localhost:4000/blog/welcome-building-in-public</id><content type="html" xml:base="http://localhost:4000/blog/welcome-building-in-public/"><![CDATA[<p>Welcome to my corner of the internet! This is where I’ll be documenting my journey as a digital marketer experimenting with various projects and ideas.</p>
+
+<h2 id="why-build-in-public">Why Build in Public?</h2>
+
+<p>There’s something powerful about sharing your work openly—even when it’s messy, incomplete, or doesn’t go as planned. Here’s why I’ve decided to take this approach:</p>
+
+<h3 id="1-accountability">1. Accountability</h3>
+
+<p>When you share what you’re working on, you create a natural accountability system. It’s harder to abandon projects when you’ve told the world about them.</p>
+
+<h3 id="2-learning-through-teaching">2. Learning Through Teaching</h3>
+
+<p>Explaining concepts to others forces you to understand them deeply. Writing about my experiments helps me think more clearly about what I’m doing and why.</p>
+
+<h3 id="3-connecting-with-others">3. Connecting with Others</h3>
+
+<p>Some of the best opportunities come from unexpected connections. By sharing my work, I hope to meet others who are exploring similar ideas.</p>
+
+<h3 id="4-creating-a-record">4. Creating a Record</h3>
+
+<p>A year from now, I’ll be able to look back and see how far I’ve come. This documentation serves as a personal learning log.</p>
+
+<h2 id="what-to-expect">What to Expect</h2>
+
+<p>On this site, you’ll find:</p>
+
+<ul>
+  <li><strong>Blog posts</strong> sharing insights, experiments, and learnings</li>
+  <li><strong>Project showcases</strong> with details on what I’m building</li>
+  <li><strong>SEO experiments</strong> including programmatic SEO case studies</li>
+  <li><strong>Honest failures</strong> because not everything works, and that’s valuable too</li>
+</ul>
+
+<h2 id="lets-connect">Let’s Connect</h2>
+
+<p>If you’re working on something interesting or have questions about anything I share here, I’d love to hear from you. The best ideas come from conversations.</p>
+
+<p>Stay tuned for more updates!</p>]]></content><author><name>Esa Hakulinen</name></author><category term="Updates" /><category term="building-in-public" /><category term="introduction" /><summary type="html"><![CDATA[An introduction to this site and why I've decided to share my experiments, projects, and learnings openly.]]></summary></entry></feed>

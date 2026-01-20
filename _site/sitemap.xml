@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/blog/welcome-building-in-public/</loc>
+<lastmod>2025-01-20T00:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/projects/portfolio-website/</loc>
+<lastmod>2025-01-20T00:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/guides/content-marketing-guide/</loc>
+<lastmod>2026-01-20T17:44:39+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/guides/seo-basics-guide/</loc>
+<lastmod>2026-01-20T17:44:39+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/blog/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/guides/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/projects/</loc>
+</url>
+</urlset>
