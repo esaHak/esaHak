@@ -4,6 +4,7 @@ layout: default
 <article class="seo-page">
   <header class="seo-header">
     <div class="container">
+      {% include breadcrumbs.html %}
       {% if page.category %}
       <span class="seo-category">{{ page.category }}</span>
       {% endif %}

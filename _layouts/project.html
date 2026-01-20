@@ -4,6 +4,7 @@ layout: default
 <article class="project">
   <header class="project-header">
     <div class="container">
+      {% include breadcrumbs.html %}
       <div class="project-status">
         {% if page.status == 'live' %}
         <span class="status status-live">Live</span>

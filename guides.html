@@ -21,7 +21,7 @@ permalink: /guides/
     {% assign categories = site.seo_pages | map: "category" | uniq %}
 
     {% for category in categories %}
-    <div class="mb-3">
+    <div class="mb-3" id="{{ category | slugify }}">
       <h2>{{ category }}</h2>
       <div class="card-grid">
         {% assign category_pages = site.seo_pages | where: "category", category %}
