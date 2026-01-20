@@ -4,14 +4,9 @@ layout: default
 <article class="post">
   <header class="post-header">
     <div class="container">
-      {% include breadcrumbs.html %}
-      {% if page.categories %}
-      <div class="post-categories">
-        {% for category in page.categories %}
-        <span class="category">{{ category }}</span>
-        {% endfor %}
-      </div>
-      {% endif %}
+      {% include organisms/breadcrumbs.html %}
+
+      {% include molecules/category-list.html categories=page.categories %}
 
       <h1 class="post-title">{{ page.title }}</h1>
 
@@ -19,14 +14,7 @@ layout: default
       <p class="post-description">{{ page.description }}</p>
       {% endif %}
 
-      <div class="post-meta">
-        <time datetime="{{ page.date | date_to_xmlschema }}">
-          {{ page.date | date: "%B %d, %Y" }}
-        </time>
-        {% if page.read_time %}
-        <span class="read-time">{{ page.read_time }} min read</span>
-        {% endif %}
-      </div>
+      {% include molecules/post-meta.html date=page.date read_time=page.read_time %}
     </div>
   </header>
 
@@ -41,32 +29,10 @@ layout: default
   </div>
 
   <footer class="post-footer container">
-    {% if page.tags %}
-    <div class="post-tags">
-      {% for tag in page.tags %}
-      <a href="{{ '/blog/tags/' | relative_url }}#{{ tag | slugify }}" class="tag">#{{ tag }}</a>
-      {% endfor %}
-    </div>
-    {% endif %}
+    {% include molecules/tag-list.html tags=page.tags %}
 
-    <div class="post-author">
-      {% if site.author.avatar %}
-      <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" class="author-avatar">
-      {% endif %}
-      <p>Written by <strong>{{ page.author | default: site.author.name }}</strong></p>
-    </div>
+    {% include organisms/post-author.html author=page.author %}
 
-    <div class="post-nav">
-      {% if page.previous %}
-      <a href="{{ page.previous.url | relative_url }}" class="post-nav-prev">
-        &larr; {{ page.previous.title }}
-      </a>
-      {% endif %}
-      {% if page.next %}
-      <a href="{{ page.next.url | relative_url }}" class="post-nav-next">
-        {{ page.next.title }} &rarr;
-      </a>
-      {% endif %}
-    </div>
-  </div>
+    {% include organisms/post-navigation.html previous=page.previous next=page.next %}
+  </footer>
 </article>

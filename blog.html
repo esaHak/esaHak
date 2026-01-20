@@ -6,38 +6,13 @@ image: /assets/images/pages/blog.jpg
 permalink: /blog/
 ---
 
-<header class="page-header">
-  <div class="container">
-    <h1 class="page-title">Blog</h1>
-    <p class="page-description">
-      Thoughts, experiments, and insights from my journey in digital marketing and building projects.
-    </p>
-  </div>
-</header>
+{% include organisms/page-header.html title="Blog" description="Thoughts, experiments, and insights from my journey in digital marketing and building projects." %}
 
 <section class="blog-list">
   <div class="container">
     {% if site.posts.size > 0 %}
       {% for post in site.posts %}
-      <a href="{{ post.url | relative_url }}" class="post-card">
-        {% if post.categories %}
-        <div class="post-categories">
-          {% for category in post.categories %}
-          <span class="category">{{ category }}</span>
-          {% endfor %}
-        </div>
-        {% endif %}
-
-        <h2 class="post-card-title">{{ post.title }}</h2>
-        <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 200 }}</p>
-
-        <div class="post-card-meta">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
-          {% if post.read_time %}
-          <span> · {{ post.read_time }} min read</span>
-          {% endif %}
-        </div>
-      </a>
+        {% include organisms/post-card.html post=post %}
       {% endfor %}
     {% else %}
       <div class="card text-center">

@@ -6,14 +6,7 @@ image: /assets/images/pages/projects.jpg
 permalink: /projects/
 ---
 
-<header class="page-header">
-  <div class="container">
-    <h1 class="page-title">Projects</h1>
-    <p class="page-description">
-      Experiments, builds, and side projects. Some succeed, some fail—all teach me something.
-    </p>
-  </div>
-</header>
+{% include organisms/page-header.html title="Projects" description="Experiments, builds, and side projects. Some succeed, some fail—all teach me something." %}
 
 <section class="section">
   <div class="container-wide">
@@ -21,42 +14,7 @@ permalink: /projects/
     <div class="project-grid">
       {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
       {% for project in sorted_projects %}
-      <a href="{{ project.url | relative_url }}" class="project-card">
-        {% if project.image %}
-        <div class="project-card-image">
-          <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-        </div>
-        {% else %}
-        <div class="project-card-image" style="display: flex; align-items: center; justify-content: center; background: var(--color-bg-alt);">
-          <span style="color: var(--color-text-light); font-size: 1.5rem;">{{ project.title | slice: 0 }}</span>
-        </div>
-        {% endif %}
-
-        <div class="project-card-content">
-          <div class="project-status">
-            {% if project.status == 'live' %}
-            <span class="status status-live">Live</span>
-            {% elsif project.status == 'in-progress' %}
-            <span class="status status-progress">In Progress</span>
-            {% elsif project.status == 'experiment' %}
-            <span class="status status-experiment">Experiment</span>
-            {% else %}
-            <span class="status status-archived">Archived</span>
-            {% endif %}
-          </div>
-
-          <h3 class="project-card-title">{{ project.title }}</h3>
-          <p class="project-card-description">{{ project.description | truncate: 120 }}</p>
-
-          {% if project.tech %}
-          <div class="project-tech" style="margin-top: auto;">
-            {% for tech in project.tech limit: 3 %}
-            <span class="tech-tag">{{ tech }}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
-        </div>
-      </a>
+        {% include organisms/project-card.html project=project %}
       {% endfor %}
     </div>
     {% else %}

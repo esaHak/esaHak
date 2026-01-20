@@ -4,7 +4,8 @@ layout: default
 <article class="seo-page">
   <header class="seo-header">
     <div class="container">
-      {% include breadcrumbs.html %}
+      {% include organisms/breadcrumbs.html %}
+
       {% if page.category %}
       <span class="seo-category">{{ page.category }}</span>
       {% endif %}
@@ -32,29 +33,19 @@ layout: default
   </div>
 
   {% if page.related_pages %}
-  <section class="related-content container">
-    <h2>Related Guides</h2>
-    <div class="related-grid">
-      {% for related in page.related_pages %}
-      {% assign related_page = site.seo_pages | where: "slug", related | first %}
-      {% if related_page %}
-      <a href="{{ related_page.url | relative_url }}" class="related-card">
-        <h3>{{ related_page.title }}</h3>
-        <p>{{ related_page.description | truncate: 100 }}</p>
-      </a>
-      {% endif %}
-      {% endfor %}
-    </div>
-  </section>
+  {% assign related_posts = "" | split: "" %}
+  {% for related in page.related_pages %}
+    {% assign related_page = site.seo_pages | where: "slug", related | first %}
+    {% if related_page %}
+      {% assign related_posts = related_posts | push: related_page %}
+    {% endif %}
+  {% endfor %}
+  {% include organisms/related-posts.html posts=related_posts title="Related Guides" %}
   {% endif %}
 
   {% if page.cta %}
   <section class="seo-cta container">
-    <div class="cta-box">
-      <h3>{{ page.cta.title }}</h3>
-      <p>{{ page.cta.description }}</p>
-      <a href="{{ page.cta.url }}" class="btn btn-primary">{{ page.cta.button }}</a>
-    </div>
+    {% include molecules/cta-box.html title=page.cta.title description=page.cta.description button_text=page.cta.button button_url=page.cta.url %}
   </section>
   {% endif %}
 </article>

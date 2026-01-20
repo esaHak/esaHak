@@ -4,13 +4,13 @@
   {% include head.html %}
 </head>
 <body>
-  {% include nav.html %}
+  {% include organisms/header.html %}
 
   <main class="site-main">
     {{ content }}
   </main>
 
-  {% include footer.html %}
+  {% include organisms/footer.html %}
 
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>

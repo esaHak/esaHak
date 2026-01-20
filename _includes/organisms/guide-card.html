@@ -1,0 +1,19 @@
+{% comment %}
+Guide Card Organism
+Usage: {% include organisms/guide-card.html guide=page %}
+Parameters:
+  - guide: SEO page/guide object (required)
+{% endcomment %}
+
+<a href="{{ include.guide.url | relative_url }}" class="card guide-card">
+  {% if include.guide.category %}
+  <span class="seo-category">{{ include.guide.category }}</span>
+  {% endif %}
+
+  <h3 class="guide-card-title">{{ include.guide.title }}</h3>
+  <p class="guide-card-description">{{ include.guide.description | truncate: 120 }}</p>
+
+  {% if include.guide.keywords %}
+  {% include molecules/tech-stack.html techs=include.guide.keywords limit=3 %}
+  {% endif %}
+</a>

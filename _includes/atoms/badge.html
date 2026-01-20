@@ -1,0 +1,24 @@
+{% comment %}
+Badge/Status Atom
+Usage: {% include atoms/badge.html status="live" %}
+Parameters:
+  - status: "live" | "in-progress" | "experiment" | "archived" (required)
+  - text: Custom text (optional - defaults based on status)
+{% endcomment %}
+
+{% case include.status %}
+  {% when 'live' %}
+    {% assign badge_class = "status-live" %}
+    {% assign badge_text = include.text | default: "Live" %}
+  {% when 'in-progress' %}
+    {% assign badge_class = "status-progress" %}
+    {% assign badge_text = include.text | default: "In Progress" %}
+  {% when 'experiment' %}
+    {% assign badge_class = "status-experiment" %}
+    {% assign badge_text = include.text | default: "Experiment" %}
+  {% else %}
+    {% assign badge_class = "status-archived" %}
+    {% assign badge_text = include.text | default: "Archived" %}
+{% endcase %}
+
+<span class="status {{ badge_class }}">{{ badge_text }}</span>

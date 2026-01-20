@@ -1,0 +1,25 @@
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol class="breadcrumb-list">
+    {% include molecules/breadcrumb-item.html text="Home" url="/" %}
+
+    {% if page.layout == 'post' %}
+      {% include molecules/breadcrumb-item.html text="Blog" url="/blog/" %}
+      {% include molecules/breadcrumb-item.html text=page.title active=true %}
+
+    {% elsif page.layout == 'project' %}
+      {% include molecules/breadcrumb-item.html text="Projects" url="/projects/" %}
+      {% include molecules/breadcrumb-item.html text=page.title active=true %}
+
+    {% elsif page.layout == 'seo_page' %}
+      {% include molecules/breadcrumb-item.html text="Guides" url="/guides/" %}
+      {% if page.category %}
+        {% assign category_url = "/guides/#" | append: page.category | slugify %}
+        {% include molecules/breadcrumb-item.html text=page.category url=category_url %}
+      {% endif %}
+      {% include molecules/breadcrumb-item.html text=page.title active=true %}
+
+    {% else %}
+      {% include molecules/breadcrumb-item.html text=page.title active=true %}
+    {% endif %}
+  </ol>
+</nav>

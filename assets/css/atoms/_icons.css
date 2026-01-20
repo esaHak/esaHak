@@ -1,0 +1,14 @@
+/* =============================================================================
+   ATOM: Icons
+============================================================================= */
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Ensure icons inherit color from parent by default */
+.icon svg {
+  display: block;
+}

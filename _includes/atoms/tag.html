@@ -1,0 +1,16 @@
+{% comment %}
+Tag Atom
+Usage: {% include atoms/tag.html text="JavaScript" url="/tags/javascript" %}
+Parameters:
+  - text: Tag text (required)
+  - url: Link URL (optional)
+  - type: "tag" | "tech" | "category" (default: "tag")
+{% endcomment %}
+
+{% assign tag_type = include.type | default: "tag" %}
+
+{% if include.url %}
+<a href="{{ include.url | relative_url }}" class="{{ tag_type }}">{% if tag_type == "tag" %}#{% endif %}{{ include.text }}</a>
+{% else %}
+<span class="{{ tag_type }}">{% if tag_type == "tag" %}#{% endif %}{{ include.text }}</span>
+{% endif %}

@@ -1,0 +1,14 @@
+{% comment %}
+Category List Molecule
+Usage: {% include molecules/category-list.html categories=page.categories %}
+Parameters:
+  - categories: Array of category names (required)
+{% endcomment %}
+
+{% if include.categories %}
+<div class="post-categories">
+  {% for category in include.categories %}
+    {% include atoms/tag.html text=category type="category" %}
+  {% endfor %}
+</div>
+{% endif %}

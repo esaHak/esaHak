@@ -1,0 +1,19 @@
+{% comment %}
+Breadcrumb Item Molecule
+Usage: {% include molecules/breadcrumb-item.html text="Blog" url="/blog/" %}
+       {% include molecules/breadcrumb-item.html text="Post Title" active=true %}
+Parameters:
+  - text: Link text (required)
+  - url: Link URL (optional - not used when active)
+  - active: Is this the current page (default: false)
+{% endcomment %}
+
+{% if include.active %}
+<li class="breadcrumb-item active" aria-current="page">
+  <span>{{ include.text }}</span>
+</li>
+{% else %}
+<li class="breadcrumb-item">
+  <a href="{{ include.url | relative_url }}">{{ include.text }}</a>
+</li>
+{% endif %}

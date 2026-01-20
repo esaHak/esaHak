@@ -1,0 +1,13 @@
+{% comment %}
+Post Author Organism
+Usage: {% include organisms/post-author.html author=page.author %}
+Parameters:
+  - author: Author name override (optional - defaults to site.author.name)
+{% endcomment %}
+
+<div class="post-author">
+  {% if site.author.avatar %}
+  <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" class="author-avatar">
+  {% endif %}
+  <p>Written by <strong>{{ include.author | default: site.author.name }}</strong></p>
+</div>

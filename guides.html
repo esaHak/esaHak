@@ -6,14 +6,7 @@ image: /assets/images/pages/guides.jpg
 permalink: /guides/
 ---
 
-<header class="page-header">
-  <div class="container">
-    <h1 class="page-title">Guides</h1>
-    <p class="page-description">
-      In-depth resources on digital marketing, SEO, and building online.
-    </p>
-  </div>
-</header>
+{% include organisms/page-header.html title="Guides" description="In-depth resources on digital marketing, SEO, and building online." %}
 
 <section class="section">
   <div class="container-wide">
@@ -26,19 +19,8 @@ permalink: /guides/
       <h2>{{ category }}</h2>
       <div class="card-grid">
         {% assign category_pages = site.seo_pages | where: "category", category %}
-        {% for page in category_pages %}
-        <a href="{{ page.url | relative_url }}" class="card">
-          <span class="seo-category">{{ page.category }}</span>
-          <h3 style="margin-top: var(--spacing-sm);">{{ page.title }}</h3>
-          <p style="color: var(--color-text-light);">{{ page.description | truncate: 120 }}</p>
-          {% if page.keywords %}
-          <div class="project-tech" style="margin-top: auto;">
-            {% for keyword in page.keywords limit: 3 %}
-            <span class="tech-tag">{{ keyword }}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
-        </a>
+        {% for guide in category_pages %}
+          {% include organisms/guide-card.html guide=guide %}
         {% endfor %}
       </div>
     </div>

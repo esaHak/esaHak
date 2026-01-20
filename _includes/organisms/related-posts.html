@@ -1,0 +1,23 @@
+{% comment %}
+Related Posts/Content Organism
+Usage: {% include organisms/related-posts.html posts=related_pages title="Related Guides" %}
+Parameters:
+  - posts: Array of related posts/pages (required)
+  - title: Section title (default: "Related Content")
+{% endcomment %}
+
+{% if include.posts.size > 0 %}
+<section class="related-content">
+  <div class="container">
+    <h2>{{ include.title | default: "Related Content" }}</h2>
+    <div class="related-grid">
+      {% for item in include.posts %}
+      <a href="{{ item.url | relative_url }}" class="related-card">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description | default: item.excerpt | strip_html | truncate: 100 }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

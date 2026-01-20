@@ -1,8 +1,23 @@
 /* =============================================================================
-   MAIN STYLESHEET
+   MAIN STYLESHEET - ATOMIC DESIGN STRUCTURE
    =============================================================================
-   A clean, modern design for your portfolio.
-   Feel free to customize colors and styles to match your brand.
+   This stylesheet follows Atomic Design methodology:
+   1. Variables - Design tokens
+   2. Base - Reset and foundational styles
+   3. Atoms - Smallest UI components (buttons, tags, badges, icons)
+   4. Molecules - Simple component groups (nav-link, post-meta, tech-stack)
+   5. Organisms - Complex components (header, footer, cards)
+   6. Templates - Page-level layouts (post, project, seo-page)
+   7. Utilities - Helper classes
+
+   For development, individual files are in:
+   - assets/css/_variables.css
+   - assets/css/_base.css
+   - assets/css/atoms/
+   - assets/css/molecules/
+   - assets/css/organisms/
+   - assets/css/templates/
+   - assets/css/utilities/
 ============================================================================= */
 
 /* -----------------------------------------------------------------------------
@@ -677,6 +692,88 @@ img {
 .project-card-description {
   color: var(--color-text-light);
   flex: 1;
+}
+
+.project-card-content .project-status {
+  margin-bottom: var(--spacing-sm);
+}
+
+.project-card-content .project-tech {
+  margin-top: auto;
+}
+
+.project-card-image--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card-image--placeholder span {
+  color: var(--color-text-light);
+  font-size: 1.5rem;
+}
+
+/* --- Icons --- */
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.icon svg {
+  display: block;
+}
+
+/* --- Post navigation with icons --- */
+.post-nav a {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.post-nav a:hover {
+  color: var(--color-primary);
+}
+
+.post-nav-prev {
+  text-align: left;
+}
+
+.post-nav-next {
+  text-align: right;
+  margin-left: auto;
+}
+
+/* --- Guide card styles --- */
+.guide-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.guide-card-title {
+  font-size: 1rem;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+}
+
+.guide-card-description {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  margin-bottom: var(--spacing-md);
+  flex: 1;
+}
+
+.guide-card .project-tech {
+  margin-top: auto;
+}
+
+/* --- Post meta separator --- */
+.post-meta .meta-separator {
+  color: var(--color-text-light);
 }
 
 /* -----------------------------------------------------------------------------

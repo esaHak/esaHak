@@ -1,0 +1,25 @@
+/* =============================================================================
+   MOLECULE: CTA Box
+============================================================================= */
+
+.cta-box {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-lg);
+}
+
+.cta-box h3 {
+  color: var(--color-text-inverse);
+}
+
+.cta-box .btn-primary {
+  background: var(--color-bg);
+  color: var(--color-primary);
+  border-color: var(--color-bg);
+}
+
+.cta-box .btn-primary:hover {
+  background: var(--color-bg-alt);
+}

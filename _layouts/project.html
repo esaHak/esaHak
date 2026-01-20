@@ -4,17 +4,10 @@ layout: default
 <article class="project">
   <header class="project-header">
     <div class="container">
-      {% include breadcrumbs.html %}
+      {% include organisms/breadcrumbs.html %}
+
       <div class="project-status">
-        {% if page.status == 'live' %}
-        <span class="status status-live">Live</span>
-        {% elsif page.status == 'in-progress' %}
-        <span class="status status-progress">In Progress</span>
-        {% elsif page.status == 'experiment' %}
-        <span class="status status-experiment">Experiment</span>
-        {% else %}
-        <span class="status status-archived">Archived</span>
-        {% endif %}
+        {% include atoms/badge.html status=page.status %}
       </div>
 
       <h1 class="project-title">{{ page.title }}</h1>
@@ -27,24 +20,18 @@ layout: default
         {% if page.date %}
         <span class="project-date">Started {{ page.date | date: "%B %Y" }}</span>
         {% endif %}
-        {% if page.tech %}
-        <div class="project-tech">
-          {% for tech in page.tech %}
-          <span class="tech-tag">{{ tech }}</span>
-          {% endfor %}
-        </div>
-        {% endif %}
+        {% include molecules/tech-stack.html techs=page.tech %}
       </div>
 
       <div class="project-links">
         {% if page.live_url %}
-        <a href="{{ page.live_url }}" class="btn btn-primary" target="_blank" rel="noopener">View Live</a>
+          {% include atoms/button.html text="View Live" url=page.live_url style="primary" target="_blank" %}
         {% endif %}
         {% if page.github_url %}
-        <a href="{{ page.github_url }}" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+          {% include atoms/button.html text="GitHub" url=page.github_url style="secondary" target="_blank" %}
         {% endif %}
         {% if page.demo_path %}
-        <a href="{{ page.demo_path | relative_url }}" class="btn btn-secondary">Interactive Demo</a>
+          {% include atoms/button.html text="Interactive Demo" url=page.demo_path style="secondary" %}
         {% endif %}
       </div>
     </div>

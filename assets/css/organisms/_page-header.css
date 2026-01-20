@@ -1,0 +1,21 @@
+/* =============================================================================
+   ORGANISM: Page Header
+============================================================================= */
+
+.page-header {
+  padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  background: var(--color-bg-alt);
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.page-description {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}

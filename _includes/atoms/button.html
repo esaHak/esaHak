@@ -1,0 +1,22 @@
+{% comment %}
+Button Atom
+Usage: {% include atoms/button.html text="Click me" url="/path" style="primary" %}
+Parameters:
+  - text: Button text (required)
+  - url: Link URL (optional - renders as <a> if provided, <button> if not)
+  - style: "primary" | "secondary" (default: "primary")
+  - target: "_blank" for external links (optional)
+  - icon: Icon name to prepend (optional)
+{% endcomment %}
+
+{% assign btn_style = include.style | default: "primary" %}
+
+{% if include.url %}
+<a href="{{ include.url | relative_url }}" class="btn btn-{{ btn_style }}"{% if include.target %} target="{{ include.target }}" rel="noopener"{% endif %}>
+  {{ include.text }}
+</a>
+{% else %}
+<button type="{{ include.type | default: 'button' }}" class="btn btn-{{ btn_style }}">
+  {{ include.text }}
+</button>
+{% endif %}

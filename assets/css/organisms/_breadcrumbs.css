@@ -1,0 +1,55 @@
+/* =============================================================================
+   ORGANISM: Breadcrumbs
+============================================================================= */
+
+.breadcrumbs {
+  margin-bottom: var(--spacing-xl);
+}
+
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--spacing-sm);
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-item a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.breadcrumb-item a:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: '/';
+  color: var(--color-text-light);
+  margin-left: var(--spacing-sm);
+  user-select: none;
+}
+
+.breadcrumb-item.active {
+  color: var(--color-text);
+}
+
+.breadcrumb-item.active span {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .breadcrumb-list {
+    font-size: 0.85rem;
+  }
+}
