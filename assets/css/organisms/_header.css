@@ -23,8 +23,14 @@
   font-size: 1.25rem;
   font-weight: 700;
   font-family: var(--font-mono);
-  background: linear-gradient(135deg, var(--color-primary), var(--color-success), var(--color-warning));
-  background-size: 200% 200%;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-success),
+    var(--color-warning),
+    var(--color-primary)
+  );
+  background-size: 300% 100%;
   background-position: 0% 50%;
   -webkit-background-clip: text;
   background-clip: text;

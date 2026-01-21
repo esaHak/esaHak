@@ -49,6 +49,11 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
+a.nav-logo,
+a.nav-logo:hover {
+  color: transparent;
+}
+
 img {
   max-width: 100%;
   height: auto;
