@@ -1,7 +1,7 @@
 ---
 title: "Programmatic SEO for Long-Tail Keywords"
 description: "Building scalable SEO content systems that automatically generate hundreds of optimized pages targeting specific keyword patterns."
-image: /assets/images/projects/programmatic-seo.jpg
+image: /assets/images/projects/programmatic-seo-header.webp
 date: 2025-01-20
 status: in-progress
 tagline: "Scaling content creation through data-driven automation"

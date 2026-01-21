@@ -295,11 +295,47 @@ img {
    Hero Section
 ----------------------------------------------------------------------------- */
 .hero {
+  position: relative;
   padding: var(--spacing-3xl) 0;
-  background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+  background-color: var(--color-bg-dark);
+  overflow: hidden;
+}
+
+/* Background image layer */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: var(--hero-bg-image, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* Gradient overlay */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.6) 0%,
+    rgba(30, 41, 59, 0.4) 50%,
+    rgba(15, 23, 42, 0.5) 100%
+  );
+  z-index: 2;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 3;
   max-width: var(--content-width);
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
@@ -308,11 +344,12 @@ img {
 .hero-title {
   font-size: 3rem;
   margin-bottom: var(--spacing-md);
+  color: var(--color-text-inverse);
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: var(--color-text-light);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: var(--spacing-xl);
 }
 
@@ -320,6 +357,18 @@ img {
   display: flex;
   gap: var(--spacing-md);
   flex-wrap: wrap;
+}
+
+/* Hero button overrides for dark background */
+.hero .btn-secondary {
+  background: transparent;
+  color: var(--color-text-inverse);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-text-inverse);
 }
 
 @media (max-width: 768px) {
@@ -1042,19 +1091,60 @@ img {
    Page Headers
 ----------------------------------------------------------------------------- */
 .page-header {
+  position: relative;
   padding: var(--spacing-3xl) 0 var(--spacing-xl);
-  background: var(--color-bg-alt);
+  background-color: var(--color-bg-dark);
   text-align: center;
+  overflow: hidden;
+}
+
+/* Background image layer for page headers */
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: var(--header-bg-image, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* Gradient overlay for page headers */
+.page-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.6) 0%,
+    rgba(30, 41, 59, 0.4) 50%,
+    rgba(15, 23, 42, 0.5) 100%
+  );
+  z-index: 2;
+}
+
+.page-header .container,
+.page-header .container-wide {
+  position: relative;
+  z-index: 3;
 }
 
 .page-title {
   font-size: 2.5rem;
   margin-bottom: var(--spacing-sm);
+  color: var(--color-text-inverse);
 }
 
 .page-description {
   font-size: 1.1rem;
-  color: var(--color-text-light);
+  color: rgba(255, 255, 255, 0.8);
   max-width: 600px;
   margin: 0 auto;
 }

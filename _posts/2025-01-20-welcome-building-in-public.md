@@ -1,7 +1,7 @@
 ---
 title: "Welcome: Why I'm Building in Public"
 description: "An introduction to this site and why I've decided to share my experiments, projects, and learnings openly."
-image: /assets/images/blog/welcome-building-in-public.jpg
+image: /assets/images/blog/welcome.webp
 date: 2025-01-20
 categories: [Updates]
 tags: [building-in-public, introduction]

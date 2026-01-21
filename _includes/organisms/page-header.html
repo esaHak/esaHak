@@ -1,12 +1,13 @@
 {% comment %}
 Page Header Organism
-Usage: {% include organisms/page-header.html title="Blog" description="Latest posts" %}
+Usage: {% include organisms/page-header.html title="Blog" description="Latest posts" bg_image="/assets/images/pages/blog-hero.webp" %}
 Parameters:
   - title: Page title (required)
   - description: Page description (optional)
+  - bg_image: Background image path (optional)
 {% endcomment %}
 
-<header class="page-header">
+<header class="page-header"{% if include.bg_image %} style="--header-bg-image: url('{{ include.bg_image | relative_url }}');"{% endif %}>
   <div class="container">
     <h1 class="page-title">{{ include.title }}</h1>
     {% if include.description %}
