@@ -24,30 +24,36 @@
    CSS Variables - Easy to customize colors and spacing
 ----------------------------------------------------------------------------- */
 :root {
-  /* Colors - Change these to match your brand */
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-secondary: #64748b;
-  --color-accent: #f59e0b;
+  /* Colors - Restrained, editorial palette */
+  --color-primary: #6b5e54;
+  --color-primary-dark: #524840;
+  --color-secondary: #8a8279;
+  --color-accent: #6b5e54;
 
   /* Text colors */
-  --color-text: #1e293b;
-  --color-text-light: #64748b;
+  --color-text: #1a1a1a;
+  --color-text-light: #5c5c5c;
   --color-text-inverse: #ffffff;
 
-  /* Background colors */
-  --color-bg: #ffffff;
-  --color-bg-alt: #f8fafc;
-  --color-bg-dark: #0f172a;
+  /* Background colors - paper-like warmth */
+  --color-bg: #f5f3f0;
+  --color-bg-card: #ffffff;
+  --color-bg-alt: #faf9f7;
+  --color-bg-dark: #2a2826;
+
+  /* Dot grid pattern */
+  --dot-color: rgba(180, 175, 168, 0.4);
+  --dot-size: 1px;
+  --dot-spacing: 24px;
 
   /* Border and UI */
-  --color-border: #e2e8f0;
-  --color-border-dark: #cbd5e1;
+  --color-border: #e5e3e0;
+  --color-border-dark: #d1cfcc;
 
-  /* Status colors */
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-info: #3b82f6;
+  /* Status colors - muted versions */
+  --color-success: #5a7a6b;
+  --color-warning: #8a7a5a;
+  --color-info: #5a6a7a;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -66,13 +72,13 @@
   --max-width: 1200px;
   --content-width: 720px;
 
-  /* Effects */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  /* Effects - minimal, restrained */
+  --shadow-sm: none;
+  --shadow-md: 0 1px 3px 0 rgb(0 0 0 / 0.04);
+  --shadow-lg: 0 2px 4px 0 rgb(0 0 0 / 0.06);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
   --transition: 150ms ease;
 }
 
@@ -95,6 +101,10 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-bg);
+  background-image: radial-gradient(var(--dot-color) var(--dot-size), transparent var(--dot-size));
+  background-size: var(--dot-spacing) var(--dot-spacing);
+  background-position: 0 0;
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -124,9 +134,12 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
-a.nav-logo,
+a.nav-logo {
+  color: var(--color-text);
+}
+
 a.nav-logo:hover {
-  color: transparent;
+  color: var(--color-primary);
 }
 
 img {
@@ -154,14 +167,14 @@ img {
 }
 
 /* -----------------------------------------------------------------------------
-   Navigation
+   Navigation - Floating card style
 ----------------------------------------------------------------------------- */
 .site-nav {
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
   position: sticky;
-  top: 0;
+  top: var(--spacing-md);
   z-index: 100;
+  padding: 0 var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
 .nav-container {
@@ -171,29 +184,20 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
 }
 
 .nav-logo {
   font-size: 1.25rem;
   font-weight: 700;
   font-family: var(--font-mono);
-  background: linear-gradient(
-    90deg,
-    var(--color-primary),
-    var(--color-success),
-    var(--color-warning),
-    var(--color-primary)
-  );
-  background-size: 300% 100%;
-  background-position: 0% 50%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  transition: background-position 0.5s ease;
+  color: var(--color-text);
+  transition: color var(--transition);
 }
 
 .nav-logo:hover {
-  background-position: 100% 50%;
+  color: var(--color-primary);
 }
 
 .nav-links {
@@ -310,65 +314,33 @@ img {
 }
 
 /* -----------------------------------------------------------------------------
-   Hero Section
+   Hero Section - Paper canvas style
 ----------------------------------------------------------------------------- */
 .hero {
   position: relative;
-  padding: var(--spacing-3xl) 0;
-  background-color: var(--color-bg-dark);
-  overflow: hidden;
-}
-
-/* Background image layer */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: var(--hero-bg-image, none);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-
-/* Gradient overlay */
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(15, 23, 42, 0.6) 0%,
-    rgba(30, 41, 59, 0.4) 50%,
-    rgba(15, 23, 42, 0.5) 100%
-  );
-  z-index: 2;
+  padding: var(--spacing-2xl) 0;
 }
 
 .hero-content {
   position: relative;
-  z-index: 3;
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
 }
 
 .hero-title {
-  font-size: 3rem;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-text-inverse);
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+  font-weight: 600;
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: var(--spacing-xl);
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-lg);
 }
 
 .hero-cta {
@@ -377,30 +349,18 @@ img {
   flex-wrap: wrap;
 }
 
-/* Hero button overrides for dark background */
-.hero .btn-secondary {
-  background: transparent;
-  color: var(--color-text-inverse);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.hero .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--color-text-inverse);
-}
-
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 }
 
 /* -----------------------------------------------------------------------------
-   Cards
+   Cards - Minimal, paper-like
 ----------------------------------------------------------------------------- */
 .card {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  border: none;
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
   transition: all var(--transition);
@@ -408,7 +368,6 @@ img {
 
 .card:hover {
   box-shadow: var(--shadow-md);
-  border-color: var(--color-border-dark);
 }
 
 .card-grid {
@@ -421,8 +380,7 @@ img {
    Blog Posts
 ----------------------------------------------------------------------------- */
 .post-header {
-  padding: var(--spacing-3xl) 0 var(--spacing-xl);
-  background: var(--color-bg-alt);
+  padding: var(--spacing-2xl) 0 var(--spacing-xl);
 }
 
 .post-categories {
@@ -437,7 +395,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-primary);
-  background: rgba(37, 99, 235, 0.1);
+  background: rgba(107, 94, 84, 0.1);
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--radius-sm);
 }
@@ -478,6 +436,9 @@ img {
 
 .post-content {
   padding: var(--spacing-2xl) var(--spacing-lg);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  margin-top: var(--spacing-lg);
 }
 
 .post-content h2 {
@@ -562,15 +523,14 @@ img {
 .post-card {
   display: block;
   padding: var(--spacing-xl);
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  border: none;
   border-radius: var(--radius-lg);
   margin-bottom: var(--spacing-lg);
   transition: all var(--transition);
 }
 
 .post-card:hover {
-  border-color: var(--color-primary);
   box-shadow: var(--shadow-md);
 }
 
@@ -594,8 +554,7 @@ img {
    Projects
 ----------------------------------------------------------------------------- */
 .project-header {
-  padding: var(--spacing-3xl) 0 var(--spacing-xl);
-  background: var(--color-bg-alt);
+  padding: var(--spacing-2xl) 0 var(--spacing-xl);
 }
 
 .project-status {
@@ -613,17 +572,17 @@ img {
 }
 
 .status-live {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(90, 122, 107, 0.1);
   color: var(--color-success);
 }
 
 .status-progress {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(90, 106, 122, 0.1);
   color: var(--color-info);
 }
 
 .status-experiment {
-  background: rgba(245, 158, 11, 0.1);
+  background: rgba(138, 122, 90, 0.1);
   color: var(--color-warning);
 }
 
@@ -673,12 +632,16 @@ img {
 
 .project-content {
   padding: var(--spacing-2xl) var(--spacing-lg);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  margin-top: var(--spacing-lg);
 }
 
 .project-lessons,
 .project-results {
   padding: var(--spacing-xl) var(--spacing-lg);
-  background: var(--color-bg-alt);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
   margin-top: var(--spacing-xl);
 }
 
@@ -692,7 +655,7 @@ img {
 .result-card {
   text-align: center;
   padding: var(--spacing-lg);
-  background: var(--color-bg);
+  background: var(--color-bg-alt);
   border-radius: var(--radius-md);
 }
 
@@ -718,17 +681,15 @@ img {
 .project-card {
   display: flex;
   flex-direction: column;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  border: none;
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition);
 }
 
 .project-card:hover {
-  border-color: var(--color-primary);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .project-card-image {
@@ -847,8 +808,7 @@ img {
    SEO Pages
 ----------------------------------------------------------------------------- */
 .seo-header {
-  padding: var(--spacing-3xl) 0 var(--spacing-xl);
-  background: var(--color-bg-alt);
+  padding: var(--spacing-2xl) 0 var(--spacing-xl);
 }
 
 .seo-category {
@@ -879,11 +839,13 @@ img {
 
 .seo-content {
   padding: var(--spacing-2xl) var(--spacing-lg);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  margin-top: var(--spacing-lg);
 }
 
 .related-content {
   padding: var(--spacing-2xl) var(--spacing-lg);
-  background: var(--color-bg-alt);
 }
 
 .related-grid {
@@ -896,14 +858,14 @@ img {
 .related-card {
   display: block;
   padding: var(--spacing-lg);
-  background: var(--color-bg);
+  background: var(--color-bg-card);
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
+  border: none;
   transition: all var(--transition);
 }
 
 .related-card:hover {
-  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
 }
 
 .related-card h3 {
@@ -924,24 +886,25 @@ img {
 
 .cta-box {
   text-align: center;
-  padding: var(--spacing-2xl);
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  color: var(--color-text-inverse);
-  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  background: var(--color-bg-card);
+  border: none;
+  border-radius: var(--radius-md);
 }
 
 .cta-box h3 {
-  color: var(--color-text-inverse);
+  color: var(--color-text);
 }
 
 .cta-box .btn-primary {
-  background: var(--color-bg);
-  color: var(--color-primary);
-  border-color: var(--color-bg);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary);
 }
 
 .cta-box .btn-primary:hover {
-  background: var(--color-bg-alt);
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
 }
 
 /* -----------------------------------------------------------------------------
@@ -951,9 +914,6 @@ img {
   padding: var(--spacing-3xl) 0;
 }
 
-.section-alt {
-  background: var(--color-bg-alt);
-}
 
 .section-header {
   text-align: center;
@@ -971,18 +931,18 @@ img {
 }
 
 /* -----------------------------------------------------------------------------
-   Footer
+   Footer - Card style on paper canvas
 ----------------------------------------------------------------------------- */
 .site-footer {
-  background: var(--color-bg-dark);
-  color: var(--color-text-inverse);
-  padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-xl);
 }
 
 .footer-container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
 }
 
 .footer-content {
@@ -993,12 +953,12 @@ img {
 }
 
 .footer-section h4 {
-  color: var(--color-text-inverse);
+  color: var(--color-text);
   margin-bottom: var(--spacing-md);
 }
 
 .footer-section p {
-  color: var(--color-secondary);
+  color: var(--color-text-light);
   font-size: 0.9rem;
 }
 
@@ -1013,22 +973,22 @@ img {
 }
 
 .footer-section a {
-  color: var(--color-secondary);
+  color: var(--color-text-light);
   font-size: 0.9rem;
 }
 
 .footer-section a:hover {
-  color: var(--color-text-inverse);
+  color: var(--color-primary);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--color-border);
   padding-top: var(--spacing-xl);
   text-align: center;
 }
 
 .footer-bottom p {
-  color: var(--color-secondary);
+  color: var(--color-text-light);
   font-size: 0.85rem;
   margin: 0;
 }
@@ -1106,63 +1066,32 @@ img {
 .mb-3 { margin-bottom: var(--spacing-2xl); }
 
 /* -----------------------------------------------------------------------------
-   Page Headers
+   Page Headers - Paper canvas style
 ----------------------------------------------------------------------------- */
 .page-header {
   position: relative;
-  padding: var(--spacing-3xl) 0 var(--spacing-xl);
-  background-color: var(--color-bg-dark);
+  padding: var(--spacing-2xl) 0 var(--spacing-xl);
   text-align: center;
-  overflow: hidden;
-}
-
-/* Background image layer for page headers */
-.page-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: var(--header-bg-image, none);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-
-/* Gradient overlay for page headers */
-.page-header::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(15, 23, 42, 0.6) 0%,
-    rgba(30, 41, 59, 0.4) 50%,
-    rgba(15, 23, 42, 0.5) 100%
-  );
-  z-index: 2;
 }
 
 .page-header .container,
 .page-header .container-wide {
   position: relative;
-  z-index: 3;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
 }
 
 .page-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: var(--spacing-sm);
-  color: var(--color-text-inverse);
+  color: var(--color-text);
+  font-weight: 600;
 }
 
 .page-description {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  color: var(--color-text-light);
   max-width: 600px;
   margin: 0 auto;
 }
