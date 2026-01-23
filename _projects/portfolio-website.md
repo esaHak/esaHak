@@ -1,7 +1,7 @@
 ---
 title: "Portfolio Website"
 description: "This very site - a Jekyll-based portfolio with blog, projects, and programmatic SEO capabilities."
-image: /assets/images/projects/portfolio-hero-abstract.webp
+image: /assets/images/projects/esahakulinen-mixtape-cassette.webp
 date: 2025-01-20
 status: live
 tagline: "A flexible foundation for sharing my work online"
