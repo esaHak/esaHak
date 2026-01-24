@@ -6,7 +6,7 @@ image: /assets/images/pages/projects.jpg
 permalink: /projects/
 ---
 
-{% include organisms/page-header.html title="Projects" description="Experiments, builds, and side projects. Some succeed, some fail—all teach me something." bg_image="/assets/images/pages/portfolio-hero-signals-in-noise.webp" %}
+{% include organisms/page-header.html title="Projects" description="Experiments, builds, and side projects. Some succeed, some fail—all teach me something." %}
 
 <section class="section">
   <div class="container-wide">
@@ -18,7 +18,7 @@ permalink: /projects/
       {% endfor %}
     </div>
     {% else %}
-    <div class="card text-center">
+    <div class="card">
       <h3>Projects coming soon</h3>
       <p>I'm working on documenting my current experiments. Check back soon!</p>
     </div>

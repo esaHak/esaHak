@@ -6,14 +6,10 @@ image: /assets/images/pages/about.jpg
 permalink: /about/
 ---
 
-<header class="page-header">
-  <div class="container">
-    <h1 class="page-title">About Me</h1>
-  </div>
-</header>
+{% include organisms/page-header.html title="About Me" description="Digital marketer, experimenter, and builder sharing the journey." %}
 
 <section class="section">
-  <div class="container">
+  <div class="container-wide">
     {% if site.author.avatar %}
     <div class="author-profile">
       <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" class="author-avatar author-avatar-large">

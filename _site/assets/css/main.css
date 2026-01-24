@@ -274,43 +274,51 @@ img {
 }
 
 /* -----------------------------------------------------------------------------
-   Buttons
+   Buttons - Arrow link style (matches hero links)
 ----------------------------------------------------------------------------- */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-lg);
-  font-size: 0.9rem;
+  color: var(--color-primary);
   font-weight: 500;
   text-decoration: none;
-  border-radius: var(--radius-md);
-  border: 2px solid transparent;
+  position: relative;
+  display: inline-block;
   cursor: pointer;
-  transition: all var(--transition);
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
 }
 
+.btn::after {
+  content: '→';
+  margin-left: var(--spacing-xs);
+  transition: margin-left var(--transition);
+}
+
+.btn:hover {
+  color: var(--color-primary-dark);
+}
+
+.btn:hover::after {
+  margin-left: var(--spacing-sm);
+}
+
+/* Primary and secondary styles now just affect color */
 .btn-primary {
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .btn-primary:hover {
-  background: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
-  color: var(--color-text-inverse);
+  color: var(--color-primary-dark);
 }
 
 .btn-secondary {
-  background: transparent;
   color: var(--color-text);
-  border-color: var(--color-border-dark);
 }
 
 .btn-secondary:hover {
-  background: var(--color-bg-alt);
-  border-color: var(--color-text);
+  color: var(--color-primary);
 }
 
 /* -----------------------------------------------------------------------------
@@ -333,12 +341,14 @@ img {
   margin-bottom: var(--spacing-sm);
   color: var(--color-text);
   font-weight: 600;
+  max-width: 600px;
 }
 
 .hero-subtitle {
   font-size: 1.1rem;
   color: var(--color-text-light);
   margin-bottom: var(--spacing-lg);
+  max-width: 600px;
 }
 
 .hero-links {
@@ -540,25 +550,101 @@ img {
   padding: var(--spacing-3xl) 0;
 }
 
+.blog-list .container {
+  max-width: var(--max-width);
+}
+
+.blog-list .section-header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.blog-list .container > .post-card,
+.blog-list .container > a.post-card {
+  display: inline-block;
+}
+
+/* Grid wrapper for post cards */
+.blog-list .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.blog-list .section-header,
+.blog-list .mt-2 {
+  grid-column: 1 / -1;
+}
+
 .post-card {
-  display: block;
-  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
   background: var(--color-bg-card);
   border: none;
   border-radius: var(--radius-lg);
-  margin-bottom: var(--spacing-lg);
+  overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
-  transition: all var(--transition);
+  transition: all 300ms ease;
 }
 
 .post-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
+.post-card-image-wrapper {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+
+.post-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.post-card:hover .post-card-image {
+  transform: scale(1.05);
+}
+
+.post-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(107, 94, 84, 0.3);
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.post-card:hover .post-card-overlay {
+  opacity: 1;
+}
+
+.post-card-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg-alt);
+}
+
+.post-card-content {
+  padding: var(--spacing-lg);
+  flex: 1;
+}
+
 .post-card-title {
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-sm);
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 0 0 var(--spacing-sm) 0;
   color: var(--color-text);
+}
+
+.post-card-date {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
 }
 
 .post-card-excerpt {
@@ -569,6 +655,12 @@ img {
 .post-card-meta {
   font-size: 0.85rem;
   color: var(--color-text-light);
+}
+
+@media (max-width: 768px) {
+  .blog-list .container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* -----------------------------------------------------------------------------
@@ -647,7 +739,7 @@ img {
 
 .project-links {
   display: flex;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
   flex-wrap: wrap;
 }
 
@@ -674,7 +766,7 @@ img {
 }
 
 .result-card {
-  text-align: center;
+  text-align: left;
   padding: var(--spacing-lg);
   background: var(--color-bg-alt);
   border-radius: var(--radius-md);
@@ -916,7 +1008,7 @@ img {
 }
 
 .cta-box {
-  text-align: center;
+  text-align: left;
   padding: var(--spacing-xl);
   background: var(--color-bg-card);
   border: none;
@@ -928,14 +1020,12 @@ img {
 }
 
 .cta-box .btn-primary {
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-  border-color: var(--color-primary);
+  color: var(--color-primary);
+  margin-top: var(--spacing-sm);
 }
 
 .cta-box .btn-primary:hover {
-  background: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+  color: var(--color-primary-dark);
 }
 
 /* -----------------------------------------------------------------------------
@@ -947,18 +1037,31 @@ img {
 
 
 .section-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: var(--spacing-2xl);
 }
 
 .section-title {
   font-size: 2rem;
   margin-bottom: var(--spacing-sm);
+  max-width: 600px;
 }
 
 .section-subtitle {
   color: var(--color-text-light);
   font-size: 1.1rem;
+  max-width: 600px;
+}
+
+.section .container p,
+.section .container-wide p,
+.section .container h2,
+.section .container-wide h2,
+.section .container h3,
+.section .container-wide h3,
+.section .container ul,
+.section .container-wide ul {
+  max-width: 600px;
 }
 
 /* -----------------------------------------------------------------------------
@@ -1015,7 +1118,7 @@ img {
 .footer-bottom {
   border-top: 1px solid var(--color-border);
   padding-top: var(--spacing-xl);
-  text-align: center;
+  text-align: left;
 }
 
 .footer-bottom p {
@@ -1096,36 +1199,6 @@ img {
 .mb-2 { margin-bottom: var(--spacing-xl); }
 .mb-3 { margin-bottom: var(--spacing-2xl); }
 
-/* -----------------------------------------------------------------------------
-   Page Headers - Paper canvas style
------------------------------------------------------------------------------ */
-.page-header {
-  position: relative;
-  padding: var(--spacing-2xl) 0 var(--spacing-xl);
-  text-align: center;
-}
-
-.page-header .container,
-.page-header .container-wide {
-  position: relative;
-  background: var(--color-bg-card);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-xl) var(--spacing-lg);
-}
-
-.page-title {
-  font-size: 2rem;
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-text);
-  font-weight: 600;
-}
-
-.page-description {
-  font-size: 1rem;
-  color: var(--color-text-light);
-  max-width: 600px;
-  margin: 0 auto;
-}
 
 /* -----------------------------------------------------------------------------
    Image Figures (for image.html include)
@@ -1146,7 +1219,7 @@ img {
   margin-top: var(--spacing-sm);
   font-size: 0.9rem;
   color: var(--color-text-light);
-  text-align: center;
+  text-align: left;
   font-style: italic;
 }
 
@@ -1166,7 +1239,7 @@ img {
 }
 
 .author-profile {
-  text-align: center;
+  text-align: left;
   margin-bottom: var(--spacing-xl);
 }
 

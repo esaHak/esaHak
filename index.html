@@ -13,8 +13,8 @@ image: /assets/images/pages/home.jpg
       and document the journey along the way.
     </p>
     <div class="hero-links">
-      <a href="/projects/">View Projects</a>
-      <a href="/blog/">Read the Blog</a>
+      <a href="/projects/">Projects</a>
+      <a href="/blog/">Blog</a>
     </div>
   </div>
 </section>
@@ -56,13 +56,13 @@ image: /assets/images/pages/home.jpg
       {% endfor %}
     </div>
 
-    <div class="hero-links" style="padding-top: 14px;">
-      <a href="/projects/">View all projects</a>
+    <div class="mt-2">
+      <a href="/projects/" class="btn btn-secondary">View Projects</a>
     </div>
 </section>
 
-<section class="section section-alt">
-  <div class="container-wide">
+<section class="blog-list">
+  <div class="container">
     <div class="section-header">
       <h2 class="section-title">Recent Posts</h2>
       <p class="section-subtitle">Thoughts, learnings, and insights from my experiments</p>
@@ -70,26 +70,17 @@ image: /assets/images/pages/home.jpg
 
     {% assign recent_posts = site.posts | limit: 3 %}
     {% for post in recent_posts %}
-    <a href="{{ post.url | relative_url }}" class="post-card">
-      <h3 class="post-card-title">{{ post.title }}</h3>
-      <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 160 }}</p>
-      <div class="post-card-meta">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
-        {% if post.categories %}
-        <span> · {{ post.categories | first }}</span>
-        {% endif %}
-      </div>
-    </a>
+      {% include organisms/post-card.html post=post %}
     {% endfor %}
 
-    <div class="text-center mt-2">
+    <div class="mt-1">
       <a href="/blog/" class="btn btn-secondary">Read All Posts</a>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container">
+  <div class="container-wide">
     <div class="section-header">
       <h2 class="section-title">Building in Public</h2>
       <p class="section-subtitle">Why I share my work openly</p>
@@ -106,7 +97,7 @@ image: /assets/images/pages/home.jpg
       welcome! Feel free to reach out if you have questions or want to collaborate.
     </p>
 
-    <div class="text-center mt-2">
+    <div class="mt-2">
       <a href="/about/" class="btn btn-primary">Learn More About Me</a>
     </div>
   </div>

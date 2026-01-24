@@ -6,7 +6,7 @@ image: /assets/images/pages/blog.jpg
 permalink: /blog/
 ---
 
-{% include organisms/page-header.html title="Blog" description="Thoughts, experiments, and insights from my journey in digital marketing and building projects." bg_image="/assets/images/pages/portfolio-hero-signals-in-noise.webp" %}
+{% include organisms/page-header.html title="Blog" description="Thoughts, experiments, and insights from my journey in digital marketing and building projects." %}
 
 <section class="blog-list">
   <div class="container">
@@ -15,7 +15,7 @@ permalink: /blog/
         {% include organisms/post-card.html post=post %}
       {% endfor %}
     {% else %}
-      <div class="card text-center">
+      <div class="card">
         <h3>No posts yet</h3>
         <p>Check back soon for new content!</p>
       </div>
