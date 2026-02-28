@@ -144,3 +144,5 @@ Local server issues: Run `bundle update`, clear cache with `rm -rf .jekyll-cache
 - GitHub Pages uses a specific set of supported plugins; not all Jekyll plugins work
 - Front matter must be valid YAML; a missing closing `---` breaks the entire build
 - CNAME file must stay in repo root for custom domain to work
+- _config.yml must restart the local Jekyll server to pick up changes (unlike content edits which hot-reload)
+- .claude/skills/ provide project context only; domain expertise belongs to the specialist agents, not the project files
