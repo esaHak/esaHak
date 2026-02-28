@@ -1,0 +1,1 @@
+Never use em dashes or en dashes in any output. Use commas, parentheses, colons, semicolons, or split into separate sentences instead. This applies to all content: prose, code comments, Markdown files, commit messages, and any other text.
