@@ -1,46 +1,41 @@
 ---
-title: "Welcome: Why I'm Building in Public"
-description: "An introduction to this site and why I've decided to share my experiments, projects, and learnings openly."
+title: "Welcome to esahakulinen.fi"
+description: "A short introduction to this portfolio site and what's on it."
 image: /assets/images/blog/elevator-indicator.webp
 date: 2025-01-20
 categories: [Updates]
-tags: [introduction]
-read_time: 3
+tags: []
+author: "Admin"
+read_time: 2
+permalink: /blog/welcome/
+twin: /blogi/tervetuloa/
+lang: en
 ---
 
-Welcome to my corner of the internet! This is where I'll be documenting my journey as a digital marketer experimenting with various projects and ideas.
+This is a portfolio site for sharing projects and ideas about digital marketing. It runs on Jekyll and GitHub Pages. Nothing too fancy. If you're curious about the technical setup, there's a [project write-up about the site itself](/projects/portfolio-website/).
 
-## Why Build in Public?
+## How the site came about
 
-There's something powerful about sharing your work openly—even when it's messy, incomplete, or doesn't go as planned. Here's why I've decided to take this approach:
+I've been interested in coding for a while. I have a minor in computer science from university, and the repository behind this site was originally created back in 2022 as a place to test things out and learn. For marketers, knowing technology is valuable. Much of the interaction with our work happens there.
 
-### 1. Accountability
+In January 2025, I put together a basic HTML page with some CSS and JavaScript. It was a homepage and not much else.
 
-When you share what you're working on, you create a natural accountability system. It's harder to abandon projects when you've told the world about them.
+With the introduction of AI coding tools, the threshold for actually writing code dropped significantly. That got me thinking about what I could build. I wanted a playground to test ideas, learn from the process, and bring those learnings back into my day-to-day work. Even though I'm hands-on in my job, building projects from scratch expands your understanding of what all of this encapsulates.
 
-### 2. Learning Through Teaching
+A year later, I rebuilt the site as a Jekyll project using Claude Code. The base infrastructure went in over a couple of days. Jekyll made sense because everything is Markdown files in a Git repository. No database, no CMS, no hosting costs beyond the domain.
 
-Explaining concepts to others forces you to understand them deeply. Writing about my experiments helps me think more clearly about what I'm doing and why.
+## What's on the site
 
-### 3. Connecting with Others
+Projects, blog posts, and any other things I want to share. The site is a playground and a platform for testing things out. Projects cover things I've built, blog posts cover things I've noticed or figured out along the way.
 
-Some of the best opportunities come from unexpected connections. By sharing my work, I hope to meet others who are exploring similar ideas.
+## How I work
 
-### 4. Creating a Record
+In my work I've seen a pattern: teams throw martech at problems and expect it to work. Tools get added, subscriptions pile up, and the underlying process stays broken. I'd rather structure things properly first and only then use technology to support it.
 
-A year from now, I'll be able to look back and see how far I've come. This documentation serves as a personal learning log.
+I prefer open-source tools when they do the job. I'd rather set something up once than subscribe to a SaaS product that does most of what I need and charges monthly for the rest. That's a preference, not a rule.
 
-## What to Expect
+I'm interested in how design decisions shape the way people interact with things. Not just visual design, but the structure: how content is organized, how a tool guides someone through a task. That kind of thinking tends to show up in the project write-ups.
 
-On this site, you'll find:
+## About me
 
-- **Blog posts** sharing insights, experiments, and learnings
-- **Project showcases** with details on what I'm building
-- **SEO experiments** including programmatic SEO case studies
-- **Honest failures** because not everything works, and that's valuable too
-
-## Let's Connect
-
-If you're working on something interesting or have questions about anything I share here, I'd love to hear from you. The best ideas come from conversations.
-
-Stay tuned for more updates!
+I'm Esa. I've worked in digital marketing for a few years now. If you want to know more, here's my [LinkedIn profile](https://www.linkedin.com/in/esahakulinen/).

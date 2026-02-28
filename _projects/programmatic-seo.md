@@ -4,6 +4,8 @@ description: "Building scalable SEO content systems that automatically generate 
 image: /assets/images/projects/miniature-vending-machine.webp
 date: 2025-01-20
 status: in-progress
+published: false
+lang: en
 tagline: "Scaling content creation through data-driven automation"
 tech:
   - Jekyll

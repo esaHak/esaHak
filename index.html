@@ -1,20 +1,24 @@
 ---
 layout: default
-title: Home
-description: Digital marketing expertise, experiments, and insights. Building in public.
+title: Koti
+description: Esa Hakulinen, digitaalinen markkinoija. Projekteja, kokeiluja ja ajatuksia niiden takana.
 image: /assets/images/pages/home.jpg
+twin: /
+lang: fi
 ---
+
+{% assign strings = site.data[site.active_lang].strings %}
 
 <section class="hero">
   <div class="hero-content">
-    <h1 class="hero-title">Hi,<br>I'm Esa Hakulinen</h1>
+    <h1 class="hero-title">{{ strings.hero_greeting }}<br>{{ strings.hero_name }}</h1>
     <p class="hero-subtitle">
-      Digital marketer.<br>I experiment with projects, share what I learn,
-      and document the journey along the way.
+      {{ strings.hero_subtitle_1 }}<br>
+      {{ strings.hero_subtitle_2 }}
     </p>
     <div class="hero-links">
-      <a href="/projects/">Projects</a>
-      <a href="/blog/">Blog</a>
+      <a href="{{ strings.nav_url_projects | relative_url }}">{{ strings.hero_link_projects }}</a>
+      <a href="{{ strings.nav_url_blog | relative_url }}">{{ strings.hero_link_blog }}</a>
     </div>
   </div>
 </section>
@@ -22,12 +26,12 @@ image: /assets/images/pages/home.jpg
 <section class="section">
   <div class="container-wide">
     <div class="section-header">
-      <h2 class="section-title">Latest Projects</h2>
-      <p class="section-subtitle">Experiments and builds I'm currently working on</p>
+      <h2 class="section-title">{{ strings.section_latest_projects }}</h2>
+      <p class="section-subtitle">{{ strings.section_latest_projects_sub }}</p>
     </div>
 
     <div class="project-grid">
-      {% assign recent_projects = site.projects | sort: 'date' | reverse | limit: 3 %}
+      {% assign recent_projects = site.projects | where: "lang", site.active_lang | sort: 'date' | reverse | limit: 3 %}
       {% for project in recent_projects %}
       <a href="{{ project.url | relative_url }}" class="project-card">
         {% if project.image %}
@@ -42,11 +46,11 @@ image: /assets/images/pages/home.jpg
         <div class="project-card-content">
           <div class="project-status">
             {% if project.status == 'live' %}
-            <span class="status status-live">Live</span>
+            <span class="status status-live">{{ strings.status_live }}</span>
             {% elsif project.status == 'in-progress' %}
-            <span class="status status-progress">In Progress</span>
+            <span class="status status-progress">{{ strings.status_progress }}</span>
             {% elsif project.status == 'experiment' %}
-            <span class="status status-experiment">Experiment</span>
+            <span class="status status-experiment">{{ strings.status_experiment }}</span>
             {% endif %}
           </div>
           <h3 class="project-card-title">{{ project.title }}</h3>
@@ -57,24 +61,24 @@ image: /assets/images/pages/home.jpg
     </div>
 
     <div class="mt-2">
-      <a href="/projects/" class="btn btn-secondary">View Projects</a>
+      <a href="{{ strings.nav_url_projects | relative_url }}" class="btn btn-secondary">{{ strings.btn_view_projects }}</a>
     </div>
 </section>
 
 <section class="blog-list">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Recent Posts</h2>
-      <p class="section-subtitle">Thoughts, learnings, and insights from my experiments</p>
+      <h2 class="section-title">{{ strings.section_recent_posts }}</h2>
+      <p class="section-subtitle">{{ strings.section_recent_posts_sub }}</p>
     </div>
 
-    {% assign recent_posts = site.posts | limit: 3 %}
+    {% assign recent_posts = site.posts | where: "lang", site.active_lang | limit: 3 %}
     {% for post in recent_posts %}
       {% include organisms/post-card.html post=post %}
     {% endfor %}
 
     <div class="mt-1">
-      <a href="/blog/" class="btn btn-secondary">Read All Posts</a>
+      <a href="{{ strings.nav_url_blog | relative_url }}" class="btn btn-secondary">{{ strings.btn_read_all_posts }}</a>
     </div>
   </div>
 </section>
@@ -82,23 +86,16 @@ image: /assets/images/pages/home.jpg
 <section class="section">
   <div class="container-wide">
     <div class="section-header">
-      <h2 class="section-title">Building in Public</h2>
-      <p class="section-subtitle">Why I share my work openly</p>
+      <h2 class="section-title">{{ strings.section_about }}</h2>
+      <p class="section-subtitle">{{ strings.section_about_sub }}</p>
     </div>
 
     <p>
-      I believe in learning by doing and sharing the journey—wins, failures, and everything in between.
-      This site is where I document my experiments in digital marketing, programmatic SEO,
-      and various side projects.
-    </p>
-
-    <p>
-      Whether you're here to learn from my experiences or just curious about what I'm building,
-      welcome! Feel free to reach out if you have questions or want to collaborate.
+      {{ strings.section_about_text }}
     </p>
 
     <div class="mt-2">
-      <a href="/about/" class="btn btn-primary">Learn More About Me</a>
+      <a href="{{ strings.nav_url_about | relative_url }}" class="btn btn-primary">{{ strings.btn_about }}</a>
     </div>
   </div>
 </section>

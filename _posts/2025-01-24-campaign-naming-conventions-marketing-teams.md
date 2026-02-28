@@ -6,6 +6,8 @@ date: 2025-01-24
 categories: [Marketing Operations]
 tags: [hubspot, campaign management, marketing analytics, naming conventions]
 read_time: 5
+published: false
+lang: en
 ---
 
 There's a problem every marketing team faces but rarely talks about: campaign naming chaos. You know the pain—trying to pull performance data only to find campaigns named "Q4 LinkedIn Campaign", "linkedin_q4_2024_FINAL", and "Q4 LI - John's version" all referring to the same initiative.
