@@ -81,12 +81,11 @@ plugins:
   - jekyll-feed
   - jekyll-polyglot
   - jekyll-seo-tag
-  - jekyll-sitemap
 
 # Multi-language configuration (jekyll-polyglot)
 languages: ["fi", "en"]
 default_lang: "fi"
-exclude_from_localization: ["javascript", "images", "css", "assets", "sitemap.xml", "favicon.ico", "site.webmanifest", "CNAME"]
+exclude_from_localization: ["javascript", "images", "css", "assets", "favicon.ico", "site.webmanifest", "CNAME", "sitemap.xml", "sitemap.xsl"]
 parallel_localization: true
 
 sass:
@@ -106,6 +105,7 @@ exclude:
   - CONTEXT.md
   - .claude
   - docs
+  - guides.html
 
 # =============================================================================
 # SEO SETTINGS

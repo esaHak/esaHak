@@ -17,8 +17,13 @@ Parameters:
   {% endif %}
 
   <div class="project-card-content">
-    <div class="project-status">
-      {% include atoms/badge.html status=include.project.status %}
+    <div class="project-card-meta-row">
+      <div class="project-status">
+        {% include atoms/badge.html status=include.project.status %}
+      </div>
+      {% if include.project.date %}
+      <span class="project-card-year">{{ include.project.date | date: "%Y" }}</span>
+      {% endif %}
     </div>
 
     <h3 class="project-card-title">{{ include.project.title }}</h3>

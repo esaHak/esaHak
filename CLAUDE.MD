@@ -1,6 +1,6 @@
 # Project: esahakulinen.fi
 
-Bilingual (Finnish + English) personal portfolio and blog site built with Jekyll and jekyll-polyglot, deployed via GitHub Actions to GitHub Pages. Showcases digital marketing expertise, projects, and insights.
+Bilingual (Finnish + English) personal site built with Jekyll and jekyll-polyglot, deployed via GitHub Actions to GitHub Pages. Framed as a "kotisivu" (personal site), not a portfolio. Projects and thoughts on digital marketing.
 
 ## Commands
 
@@ -48,8 +48,13 @@ The `_config.yml` default permalink pattern (`/blog/:title/`) applies to the def
 - `_data/fi/strings.yml`: Finnish UI strings for all templates
 - `_data/en/strings.yml`: English UI strings for all templates
 - `assets/css/_variables.css`: Design tokens (colors, spacing, typography)
-- `assets/css/main.css`: Master stylesheet (imports all atomic modules)
+- `assets/css/main.css`: Master stylesheet (the only CSS file loaded; atomic files are reference copies)
 - `.github/workflows/jekyll.yml`: Custom GitHub Actions deployment workflow
+- `sitemap.xml`: Custom Liquid template (not jekyll-sitemap plugin; see CONTEXT.md Section 9)
+- `sitemap.xsl`: XSL stylesheet that renders sitemap as a styled table in browsers
+- `robots.txt`: Crawl directives and sitemap reference
+- `404.html`: Custom error page (localized via string keys)
+- `docs/VOICE_AND_STYLE.md`: Voice and style guide for content creation (includes Finnish Language Guidelines section)
 
 ## Iterative Context: Recognizing When to Save
 
@@ -80,14 +85,37 @@ Run /project:save-context, or manually:
 5. If you discovered a gotcha, add it to CONTEXT.md Section 17 (Known Gotchas)
 6. If you added a new file that future agents need, add it to "Before You Start Working" and "Key Files" above
 
+## Sitemap
+
+The site uses a custom `sitemap.xml` Liquid template, NOT the jekyll-sitemap plugin. The plugin was removed because it does not work with polyglot (outputs all pages without language prefixes; polyglot only rewrites HTML, not XML). The custom template filters by `doc.lang`, prepends `/en/` for English content, adds `xhtml:link` hreflang alternates for twin pages, and backfills entries for twin URLs that polyglot hides during the build (e.g. the English homepage). An XSL stylesheet (`sitemap.xsl`) provides visual rendering in browsers. Both files are excluded from localization.
+
+## CSS Architecture
+
+`main.css` is the ONLY stylesheet loaded by the site. The atomic CSS files in subdirectories (`atoms/`, `molecules/`, `organisms/`, `templates/`, `utilities/`) are reference copies kept in sync manually. When making CSS changes, always edit `main.css` first (it is authoritative), then update the matching atomic file to stay in sync.
+
+### Layout Model
+
+The body uses `display: flex; flex-direction: column; min-height: 100vh` with `.site-main { flex: 1 }` so the footer naturally sits at the bottom of the viewport on short pages without forcing excessive whitespace. Do NOT reintroduce `min-height: calc(100vh - Xpx)` on `.site-main`; that was the old approach and caused the footer to be pushed far down on pages with little content.
+
+### Spacing Philosophy
+
+Section padding uses `--spacing-xl` (2rem), not `--spacing-3xl` (4rem). Headers, content areas, and the footer use similarly compact values. The site has few content items currently, so tight spacing prevents pages from feeling empty. If the spacing looks too loose, check that no one has reverted section/hero/blog-list padding back to `--spacing-3xl` or `--spacing-2xl`.
+
 ## Rules (also in .claude/rules/)
 
 - No em dashes in any output
 - Never commit _site/ directory; GitHub Pages builds it
 - CSS changes only in assets/css/, never in _site/
-- Test locally with `bundle exec jekyll serve` before pushing
+- Test locally with `bundle exec jekyll serve` before pushing (not possible in Cowork; see CONTEXT.md gotchas)
 - Staging branch for development; main branch triggers deployment
 - Never force-push main
 - Every content file must have `lang: fi` or `lang: en` in front matter
 - New UI text requires entries in both `_data/fi/strings.yml` and `_data/en/strings.yml`
 - Published content should have both Finnish and English versions
+- Liquid variable names cannot start with a number (use `error_title` not `404_title`)
+- Do not use jekyll-sitemap plugin; use the custom sitemap.xml template instead
+- Old root-level includes (nav.html, footer.html, breadcrumbs.html) were removed; use organisms/ versions only
+- Footer bio text comes from `strings.footer_bio`, not from `site.author.bio` in _config.yml (the _config.yml bio is English-only and used only by jekyll-seo-tag for schema)
+- Post navigation (previous/next) filters by `page.lang` in `_layouts/post.html`; do NOT use Jekyll's built-in `page.previous`/`page.next` as they cross language boundaries
+- The site is framed as "kotisivu" (personal site), not "portfoliosivusto" (portfolio site); see docs/VOICE_AND_STYLE.md Finnish Language Guidelines for details
+- Read docs/VOICE_AND_STYLE.md before writing any Finnish or English copy; it contains specific Finnish language rules

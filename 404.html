@@ -1,0 +1,17 @@
+---
+layout: default
+title: "Page not found"
+permalink: /404.html
+lang: fi
+sitemap: false
+---
+
+{% assign strings = site.data[site.active_lang].strings %}
+
+<section class="section">
+  <div class="container-wide" style="text-align: center; padding: var(--spacing-3xl) 0;">
+    <h1>{{ strings.error_title }}</h1>
+    <p>{{ strings.error_text }}</p>
+    <p><a href="{{ '/' | relative_url }}" class="btn">{{ strings.error_back_home }}</a></p>
+  </div>
+</section>

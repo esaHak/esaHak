@@ -46,7 +46,7 @@ layout: default
 
       <div class="project-meta">
         {% if page.date %}
-        <span class="project-date">{{ strings.project_started }} {{ page.date | date: "%B %Y" }}</span>
+        <span class="project-date">{{ page.date | date: "%Y" }}</span>
         {% endif %}
         {% include molecules/tech-stack.html techs=page.tech %}
       </div>

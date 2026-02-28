@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
+{% assign strings = site.data[site.active_lang].strings %}
+
 <article class="seo-page">
   <header class="seo-header">
     <div class="container">
@@ -17,7 +19,7 @@ layout: default
       {% endif %}
 
       {% if page.last_updated %}
-      <p class="seo-updated">Last updated: {{ page.last_updated | date: "%B %d, %Y" }}</p>
+      <p class="seo-updated">{{ strings.seo_last_updated }}: {{ page.last_updated | date: "%B %d, %Y" }}</p>
       {% endif %}
     </div>
   </header>
@@ -40,7 +42,7 @@ layout: default
       {% assign related_posts = related_posts | push: related_page %}
     {% endif %}
   {% endfor %}
-  {% include organisms/related-posts.html posts=related_posts title="Related guides" %}
+  {% include organisms/related-posts.html posts=related_posts title=strings.related_guides %}
   {% endif %}
 
   {% if page.cta %}

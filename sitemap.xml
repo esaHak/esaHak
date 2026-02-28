@@ -1,0 +1,87 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="{{ '/sitemap.xsl' | relative_url }}"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- comment -%}
+  Custom sitemap for bilingual site (fi + en).
+  Outputs each page with the correct language prefix and hreflang alternates.
+  A second pass generates entries for twin URLs that polyglot hides during
+  the build (e.g. the English homepage shares permalink / with the Finnish one).
+{%- endcomment -%}
+{%- assign all_docs = "" | split: "" -%}
+{%- assign seen_urls = "" | split: "" -%}
+{%- for pg in site.pages -%}
+  {%- if pg.sitemap == false or pg.url contains '/assets/' or pg.url == '/sitemap.xml' or pg.url == '/sitemap.xsl' or pg.url == '/404.html' or pg.url == '/robots.txt' or pg.url == '/feed.xml' -%}
+    {%- continue -%}
+  {%- endif -%}
+  {%- assign all_docs = all_docs | push: pg -%}
+{%- endfor -%}
+{%- for post in site.posts -%}
+  {%- unless post.sitemap == false -%}
+    {%- assign all_docs = all_docs | push: post -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- for project in site.projects -%}
+  {%- unless project.sitemap == false -%}
+    {%- assign all_docs = all_docs | push: project -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- for doc in all_docs -%}
+  {%- assign doc_lang = doc.lang | default: site.default_lang -%}
+  {%- if doc_lang == site.default_lang -%}
+    {%- assign doc_url = doc.url | absolute_url -%}
+  {%- else -%}
+    {%- assign doc_url = doc.url | prepend: "/en" | absolute_url -%}
+  {%- endif -%}
+  {%- assign seen_urls = seen_urls | push: doc_url -%}
+  <url>
+    <loc>{{ doc_url | xml_escape }}</loc>
+    {%- if doc.date %}
+    <lastmod>{{ doc.date | date_to_xmlschema }}</lastmod>
+    {%- endif %}
+    {%- if doc.twin %}
+    {%- if doc_lang == site.default_lang -%}
+      {%- assign twin_url = doc.twin | prepend: "/en" | absolute_url -%}
+      {%- assign twin_lang = "en" -%}
+    {%- else -%}
+      {%- assign twin_url = doc.twin | absolute_url -%}
+      {%- assign twin_lang = site.default_lang -%}
+    {%- endif %}
+    <xhtml:link rel="alternate" hreflang="{{ doc_lang }}" href="{{ doc_url | xml_escape }}" />
+    <xhtml:link rel="alternate" hreflang="{{ twin_lang }}" href="{{ twin_url | xml_escape }}" />
+    {%- endif %}
+  </url>
+{%- endfor -%}
+{%- comment -%} Backfill: add entries for twin URLs not already output {%- endcomment -%}
+{%- for doc in all_docs -%}
+  {%- if doc.twin -%}
+    {%- assign doc_lang = doc.lang | default: site.default_lang -%}
+    {%- if doc_lang == site.default_lang -%}
+      {%- assign twin_url = doc.twin | prepend: "/en" | absolute_url -%}
+      {%- assign twin_lang = "en" -%}
+      {%- assign doc_url = doc.url | absolute_url -%}
+    {%- else -%}
+      {%- assign twin_url = doc.twin | absolute_url -%}
+      {%- assign twin_lang = site.default_lang -%}
+      {%- assign doc_url = doc.url | prepend: "/en" | absolute_url -%}
+    {%- endif -%}
+    {%- unless seen_urls contains twin_url -%}
+      {%- assign seen_urls = seen_urls | push: twin_url -%}
+  <url>
+    <loc>{{ twin_url | xml_escape }}</loc>
+    {%- if doc.date %}
+    <lastmod>{{ doc.date | date_to_xmlschema }}</lastmod>
+    {%- endif %}
+    <xhtml:link rel="alternate" hreflang="{{ twin_lang }}" href="{{ twin_url | xml_escape }}" />
+    <xhtml:link rel="alternate" hreflang="{{ doc_lang }}" href="{{ doc_url | xml_escape }}" />
+  </url>
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor %}
+</urlset>

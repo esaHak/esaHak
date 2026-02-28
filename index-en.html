@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Home
-description: Esa Hakulinen, digital marketer. Projects, experiments, and the thinking behind them.
+description: Esa Hakulinen. Projects and thoughts on digital marketing.
 image: /assets/images/pages/home.jpg
 permalink: /
 twin: /
@@ -45,13 +45,12 @@ lang: en
         </div>
         {% endif %}
         <div class="project-card-content">
-          <div class="project-status">
-            {% if project.status == 'live' %}
-            <span class="status status-live">{{ strings.status_live }}</span>
-            {% elsif project.status == 'in-progress' %}
-            <span class="status status-progress">{{ strings.status_progress }}</span>
-            {% elsif project.status == 'experiment' %}
-            <span class="status status-experiment">{{ strings.status_experiment }}</span>
+          <div class="project-card-meta-row">
+            <div class="project-status">
+              {% include atoms/badge.html status=project.status %}
+            </div>
+            {% if project.date %}
+            <span class="project-card-year">{{ project.date | date: "%Y" }}</span>
             {% endif %}
           </div>
           <h3 class="project-card-title">{{ project.title }}</h3>
@@ -88,7 +87,7 @@ lang: en
   <div class="container-wide">
     <div class="section-header">
       <h2 class="section-title">{{ strings.section_about }}</h2>
-      <p class="section-subtitle">{{ strings.section_about_sub }}</p>
+      {% if strings.section_about_sub != "" %}<p class="section-subtitle">{{ strings.section_about_sub }}</p>{% endif %}
     </div>
 
     <p>

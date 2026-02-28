@@ -105,6 +105,9 @@ body {
   background-size: var(--dot-spacing) var(--dot-spacing);
   background-position: 0 0;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -163,7 +166,7 @@ img {
 }
 
 .site-main {
-  min-height: calc(100vh - 200px);
+  flex: 1;
 }
 
 /* -----------------------------------------------------------------------------
@@ -272,6 +275,7 @@ img {
   .nav-container {
     display: flex;
     justify-content: space-between;
+    position: relative;
   }
 
   .nav-toggle {
@@ -285,14 +289,17 @@ img {
   .nav-links {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + var(--spacing-sm));
     left: 0;
     right: 0;
-    background: var(--color-bg);
+    background: var(--color-bg-card);
     flex-direction: column;
-    padding: var(--spacing-lg);
-    gap: var(--spacing-md);
-    border-bottom: 1px solid var(--color-border);
+    align-items: flex-start;
+    justify-self: stretch;
+    text-align: left;
+    padding: var(--spacing-md) var(--spacing-lg);
+    gap: 0;
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
   }
 
@@ -300,10 +307,19 @@ img {
     display: flex;
   }
 
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: var(--spacing-sm) 0;
+  }
+
   .nav-link-mobile-lang {
     display: list-item;
     border-top: 1px solid var(--color-border);
-    padding-top: var(--spacing-md);
+    padding-top: var(--spacing-sm);
     margin-top: var(--spacing-sm);
   }
 
@@ -371,14 +387,14 @@ img {
 ----------------------------------------------------------------------------- */
 .hero {
   position: relative;
-  padding: var(--spacing-2xl) 0;
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
 }
 
 .hero-content {
   position: relative;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--spacing-xl) var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-lg);
 }
 
 .hero-title {
@@ -455,7 +471,7 @@ img {
    Blog Posts
 ----------------------------------------------------------------------------- */
 .post-header {
-  padding: var(--spacing-2xl) 0 var(--spacing-xl);
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
 }
 
 .post-categories {
@@ -510,10 +526,10 @@ img {
 }
 
 .post-content {
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
   background: var(--color-bg-card);
   border-radius: var(--radius-lg);
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-md);
 }
 
 .post-content h2 {
@@ -556,7 +572,7 @@ img {
 }
 
 .post-footer {
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
   border-top: 1px solid var(--color-border);
 }
 
@@ -592,7 +608,7 @@ img {
    Blog List
 ----------------------------------------------------------------------------- */
 .blog-list {
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-xl) 0;
 }
 
 .blog-list .container {
@@ -600,7 +616,7 @@ img {
 }
 
 .blog-list .section-header {
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .blog-list .container > .post-card,
@@ -713,7 +729,7 @@ img {
    Projects
 ----------------------------------------------------------------------------- */
 .project-header {
-  padding: var(--spacing-2xl) 0 var(--spacing-xl);
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
 }
 
 .project-status {
@@ -790,10 +806,10 @@ img {
 }
 
 .project-content {
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
   background: var(--color-bg-card);
   border-radius: var(--radius-lg);
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-md);
 }
 
 .project-lessons,
@@ -801,7 +817,7 @@ img {
   padding: var(--spacing-xl) var(--spacing-lg);
   background: var(--color-bg-card);
   border-radius: var(--radius-lg);
-  margin-top: var(--spacing-xl);
+  margin-top: var(--spacing-md);
 }
 
 .results-grid {
@@ -883,6 +899,23 @@ img {
 .project-card-description {
   color: var(--color-text-light);
   flex: 1;
+}
+
+.project-card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+}
+
+.project-card-meta-row .project-status {
+  margin-bottom: 0;
+}
+
+.project-card-year {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  font-weight: 500;
 }
 
 .project-card-content .project-status {
@@ -976,7 +1009,7 @@ img {
    SEO Pages
 ----------------------------------------------------------------------------- */
 .seo-header {
-  padding: var(--spacing-2xl) 0 var(--spacing-xl);
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
 }
 
 .seo-category {
@@ -1006,14 +1039,14 @@ img {
 }
 
 .seo-content {
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
   background: var(--color-bg-card);
   border-radius: var(--radius-lg);
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-md);
 }
 
 .related-content {
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
 }
 
 .related-grid {
@@ -1050,7 +1083,7 @@ img {
 }
 
 .seo-cta {
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
 }
 
 .cta-box {
@@ -1078,13 +1111,12 @@ img {
    Section Styles
 ----------------------------------------------------------------------------- */
 .section {
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-xl) 0;
 }
-
 
 .section-header {
   text-align: left;
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .section-title {
@@ -1114,13 +1146,13 @@ img {
    Footer - Card style on paper canvas
 ----------------------------------------------------------------------------- */
 .site-footer {
-  padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-xl);
+  padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg);
 }
 
 .footer-container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
   background: var(--color-bg-card);
   border-radius: var(--radius-lg);
 }
@@ -1128,8 +1160,8 @@ img {
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-2xl);
-  margin-bottom: var(--spacing-2xl);
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .footer-section h4 {
@@ -1163,7 +1195,7 @@ img {
 
 .footer-bottom {
   border-top: 1px solid var(--color-border);
-  padding-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
   text-align: left;
 }
 

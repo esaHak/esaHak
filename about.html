@@ -1,12 +1,14 @@
 ---
 layout: default
 title: About
-description: Esa Hakulinen is a digital marketer. This is his portfolio site.
+description: I work in digital marketing. Here you'll find projects and thoughts I've shared.
 image: /assets/images/pages/about.jpg
 permalink: /about/
 twin: /tietoa/
 lang: en
 ---
+
+{% assign strings = site.data[site.active_lang].strings %}
 
 {% comment %} ProfilePage schema for Google knowledge panels {% endcomment %}
 <script type="application/ld+json">
@@ -17,7 +19,7 @@ lang: en
     "@type": "Person",
     "name": "{{ site.author.name }}",
     "description": {{ site.author.bio | jsonify }},
-    "url": "{{ '/about/' | absolute_url }}"{% if site.author.avatar %},
+    "url": "{{ page.permalink | absolute_url }}"{% if site.author.avatar %},
     "image": "{{ site.author.avatar | absolute_url }}"{% endif %}{% if site.social.links %},
     "sameAs": {{ site.social.links | jsonify }}{% endif %},
     "jobTitle": "Digital Marketer",
@@ -26,22 +28,21 @@ lang: en
 }
 </script>
 
-{% include organisms/page-header.html title="About" %}
+{% include organisms/page-header.html title=strings.about_title %}
 
 <section class="section">
   <div class="container-wide">
     <p>
-      I'm a digital marketer. I use AI coding tools to turn ideas into working products,
-      and this site is where I document what I build and what I learn from building it.
+      I work in digital marketing. Here you'll find projects and thoughts I've shared.
     </p>
 
-    <h2>This site</h2>
+    <h2>{{ strings.about_this_site }}</h2>
 
     <p>
       Projects and writing that I've put together. If you're curious about the technical setup, there's a <a href="{{ '/projects/portfolio-website/' | relative_url }}">project write-up about how the site was built</a>.
     </p>
 
-    <h3>Get in touch</h3>
+    <h3>{{ strings.about_get_in_touch }}</h3>
 
     <ul>
       {% if site.author.linkedin %}

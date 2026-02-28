@@ -1,40 +1,52 @@
 /* =============================================================================
-   ATOM: Buttons
+   ATOM: Buttons - Arrow link style
+   =============================================================================
+   Buttons use a minimal arrow-link style matching the site's editorial tone.
+   Primary and secondary variants only affect color. See main.css for the
+   authoritative definitions; this file is kept in sync as a reference.
 ============================================================================= */
 
 .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-lg);
-  font-size: 0.9rem;
+  color: var(--color-primary);
   font-weight: 500;
   text-decoration: none;
-  border-radius: var(--radius-md);
-  border: 2px solid transparent;
+  position: relative;
+  display: inline-block;
   cursor: pointer;
-  transition: all var(--transition);
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
 }
 
+.btn::after {
+  content: '\2192';
+  margin-left: var(--spacing-xs);
+  transition: margin-left var(--transition);
+}
+
+.btn:hover {
+  color: var(--color-primary-dark);
+}
+
+.btn:hover::after {
+  margin-left: var(--spacing-sm);
+}
+
+/* Primary and secondary styles affect color only */
 .btn-primary {
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .btn-primary:hover {
-  background: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
-  color: var(--color-text-inverse);
+  color: var(--color-primary-dark);
 }
 
 .btn-secondary {
-  background: transparent;
   color: var(--color-text);
-  border-color: var(--color-border-dark);
 }
 
 .btn-secondary:hover {
-  background: var(--color-bg-alt);
-  border-color: var(--color-text);
+  color: var(--color-primary);
 }

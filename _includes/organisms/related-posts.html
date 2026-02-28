@@ -1,15 +1,16 @@
 {% comment %}
 Related Posts/Content Organism
-Usage: {% include organisms/related-posts.html posts=related_pages title="Related Guides" %}
+Usage: {% include organisms/related-posts.html posts=related_pages title=strings.related_guides %}
 Parameters:
   - posts: Array of related posts/pages (required)
-  - title: Section title (default: "Related Content")
+  - title: Section title (default: localized "Related content" string)
 {% endcomment %}
 
+{% assign strings = site.data[site.active_lang].strings %}
 {% if include.posts.size > 0 %}
 <section class="related-content">
   <div class="container">
-    <h2>{{ include.title | default: "Related content" }}</h2>
+    <h2>{{ include.title | default: strings.related_content }}</h2>
     <div class="related-grid">
       {% for item in include.posts %}
       <a href="{{ item.url | relative_url }}" class="related-card">

@@ -1,17 +1,21 @@
 /* =============================================================================
-   ORGANISM: Site Footer
+   ORGANISM: Site Footer - Card style on paper canvas
+   =============================================================================
+   Footer uses a card-on-paper style with light background, matching the site's
+   editorial design. See main.css for the authoritative definitions; this file
+   is kept in sync as a reference.
 ============================================================================= */
 
 .site-footer {
-  background: var(--color-bg-dark);
-  color: var(--color-text-inverse);
-  padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-xl);
 }
 
 .footer-container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
 }
 
 .footer-content {
@@ -22,12 +26,12 @@
 }
 
 .footer-section h4 {
-  color: var(--color-text-inverse);
+  color: var(--color-text);
   margin-bottom: var(--spacing-md);
 }
 
 .footer-section p {
-  color: var(--color-secondary);
+  color: var(--color-text-light);
   font-size: 0.9rem;
 }
 
@@ -42,22 +46,22 @@
 }
 
 .footer-section a {
-  color: var(--color-secondary);
+  color: var(--color-text-light);
   font-size: 0.9rem;
 }
 
 .footer-section a:hover {
-  color: var(--color-text-inverse);
+  color: var(--color-primary);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--color-border);
   padding-top: var(--spacing-xl);
-  text-align: center;
+  text-align: left;
 }
 
 .footer-bottom p {
-  color: var(--color-secondary);
+  color: var(--color-text-light);
   font-size: 0.85rem;
   margin: 0;
 }

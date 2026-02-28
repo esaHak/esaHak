@@ -33,6 +33,19 @@ layout: default
 
     {% include organisms/post-author.html author=page.author %}
 
-    {% include organisms/post-navigation.html previous=page.previous next=page.next %}
+    {% assign lang_posts = site.posts | where: "lang", page.lang | sort: "date" %}
+    {% assign prev_post = nil %}
+    {% assign next_post = nil %}
+    {% assign found_current = false %}
+    {% for p in lang_posts %}
+      {% if p.url == page.url %}
+        {% assign found_current = true %}
+      {% elsif found_current and next_post == nil %}
+        {% assign next_post = p %}
+      {% elsif found_current == false %}
+        {% assign prev_post = p %}
+      {% endif %}
+    {% endfor %}
+    {% include organisms/post-navigation.html previous=prev_post next=next_post %}
   </footer>
 </article>

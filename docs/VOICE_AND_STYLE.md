@@ -4,7 +4,7 @@
 
 ## Core Identity
 
-Esa Hakulinen is a digital marketer. He uses AI coding tools to turn ideas into working products. The site is a portfolio for sharing projects and ideas. Expertise is demonstrated through the work itself, not through claims or self-promotion.
+Esa Hakulinen works in digital marketing. The site is a personal space for sharing projects and thoughts. It is framed as a "kotisivu" (home page), not a formal portfolio. Expertise is demonstrated through the work itself, not through claims or self-promotion. Describe what you do, not what you are: "I work in digital marketing" rather than "I am a digital marketer."
 
 Background context (not for public copy): Esa has a minor in computer science, works in marketing operations and campaign management, and is interested in how design decisions shape user behavior. He prefers open-source tools, dislikes low-value SaaS subscriptions, and believes in doing things properly. These traits should emerge through project write-ups and blog posts, never through taglines or declarations.
 
@@ -25,7 +25,7 @@ Equally important: don't claim expertise the reader has no reason to believe yet
 The rule: give people snippets of information at a time, and through those snippets, build credibility. Underlining things for the sake of it is pretentious.
 
 Bad: "Marketing, human behavior, and technology." (as a tagline)
-Good: "Digital marketer. Welcome to my portfolio site, where I share projects and ideas." (then the projects demonstrate the depth)
+Good: "I work in digital marketing. Welcome to my site, where I share projects and thoughts." (then the projects demonstrate the depth)
 
 ### 2. Intentional and Precise
 
@@ -103,10 +103,93 @@ Write as if talking to a peer, not presenting to an audience.
 - Let the natural structure of the topic guide the layout
 - End with a takeaway or an open question, not a call-to-action pitch
 
-## Example Rewrites
+## Finnish Language Guidelines
+
+The voice principles above apply to both languages. This section addresses Finnish-specific choices that don't have direct English equivalents.
+
+### Identity and Self-Description
+
+Prefer describing what you do over what you are. "Työskentelen digitaalisessa markkinoinnissa" (I work in digital marketing) rather than "Olen digitaalinen markkinoija" (I am a digital marketer). The field, not the title. Identity through work, not labels.
+
+Exception: meta descriptions may include "digitaalinen markkinointi" as a keyword for search visibility, but the visible page text should avoid title-based self-labeling.
+
+### Register: Controlled Mix
+
+The Finnish writing deliberately mixes casual and precise language. This is not inconsistent; it is intentional. Use casual, everyday Finnish for familiar things ("pyörii", "kasasin", "hoitaa homman") and precise, formal terms for specific claims and technical descriptions ("merkittävästi", "auktoritatiivinen"). The contrast itself signals the voice: someone who talks normally but thinks carefully.
+
+Do not flatten the register in either direction. Forcing everything casual undermines credibility. Forcing everything formal makes it stiff.
+
+### Sentence Length
+
+Finnish grammar naturally produces longer sentences than English. This is fine. Do not force English-style brevity onto Finnish text. A well-constructed long sentence in Finnish is better than a choppy series of short ones that fight the language's natural flow.
+
+That said, mix lengths. A short declarative sentence after a longer analytical one creates rhythm. "Portfoliosivusto, jota on helppo päivittää, tulee päivitetyksi. Sellainen, jota on monimutkaista ylläpitää, ei tule." This kind of pattern works well in Finnish.
+
+### Compound Words
+
+Finnish compound words can be long (tekoälykoodaustyökaluja, sisällönhallintajärjestelmää, suunnittelujärjestelmä). Do not break them up or rephrase them to avoid length. Long compounds are how Finnish works. Readers expect them. Fighting compound words makes the text feel translated.
+
+### Active Voice and Perspective
+
+Use first person ("minä") throughout. Meta descriptions, page text, and blog posts all use first person for consistency.
+
+For voice (active vs. passive): use active first person for personal writing and opinions ("Rakensin sivuston", "Suosin avoimen lähdekoodin työkaluja"). Passive voice is acceptable for general statements and technical descriptions where the actor is irrelevant ("Sivusto rakennetaan kahdesti, kerran per kieli"). Do not force active voice where passive is more natural.
+
+### English Technical Terms
+
+Use established English technical terms as they are: "front matter", "push", "layout", "template", "main-haara". Do not force Finnish translations when the English term is what practitioners actually use. Awkward Finnish translations ("etusivu-data", "työntää") make the text feel artificial.
+
+Finnish inflection of English terms is fine and expected: "Jekyllillä", "pushasin", "layoutin". This is how Finnish tech writing works.
+
+### Connectors and Transitions
+
+Prefer simple, everyday connectors ("ja", "mutta", "koska", "siksi", "toisaalta") over academic or literary ones ("näin ollen", "täten", "edellä mainittu"). The writing should flow like conversation between peers, not like an essay or a thesis.
+
+"Toisaalta" (on the other hand) is fine when genuinely presenting another perspective. Avoid using connectors as filler to make text sound more structured than it is.
+
+### Capitalization
+
+Sentence case everywhere. Finnish does not capitalize nouns (unlike German), so this is the natural approach. Capitalize only the first word of headings, buttons, and labels. Single-word navigation labels (Koti, Blogi, Projektit, Tietoa) are capitalized as proper names of sections.
+
+Never use title case in Finnish. It looks foreign and wrong.
+
+### Finnish Equivalents of "What to Avoid"
+
+The English "What to Avoid" list applies, but some items have specific Finnish manifestations:
+
+"Matkan varrella" (along the way/journey) is the Finnish version of journey language. Avoid it. Same applies to "oppimispolku" (learning path), "kehitysmatka" (development journey), and similar.
+
+"Ajatuksia" (thoughts) is acceptable in Finnish where "thoughts" or "insights" would be pretentious in English. Context matters: "ajatuksiani" as a brief descriptor of blog content is fine. "Syvällisiä ajatuksiani" (my deep thoughts) is not.
+
+"Arvokasta" (valuable), "tärkeää" (important), "merkityksellistä" (meaningful) are value judgments. In Finnish, these words are common filler. Cut them. State what something does, not how valuable it is.
+
+Exclamation marks are even more conspicuous in Finnish than in English because Finnish writing tends toward understatement. No exclamation marks.
+
+### Site Framing
+
+The site is framed as "kotisivu" (personal site/home page), not "portfoliosivusto" (portfolio site). This is deliberate: it should feel like a personal space, not a formal portfolio presentation. Use "kotisivu" or "sivusto" in Finnish copy. "Portfoliosivusto" is acceptable only in the project write-up that describes how the site was built, where it is used as a technical/descriptive term.
+
+### Example Rewrites (Finnish)
+
+Alkuperäinen: "Olen digitaalinen markkinoija, joka rakastaa kokeilla uusia ideoita ja jakaa oppimiani asioita matkan varrella."
+Korjattu: "Työskentelen digitaalisessa markkinoinnissa. Täältä löydät projekteja ja ajatuksia, joita olen jakanut."
+
+Alkuperäinen: "Huomioita markkinoinnista, työkaluista ja asioista, joita olen oppinut matkan varrella"
+Korjattu: "Kirjoituksia markkinoinnista ja projekteista."
+
+Alkuperäinen: "Markkinoijalle teknologian ymmärtäminen on arvokasta."
+Korjattu: Cut "arvokasta." Rephrase: "Markkinoinnissa suuri osa työstä tapahtuu teknologian parissa." (State the fact, not the value judgment.)
+
+Alkuperäinen: "Navigoi" (footer heading)
+Korjattu: "Sivut" (pages; descriptive, not a command)
+
+Alkuperäinen: "Yhteys" (footer heading)
+Korjattu: "Yhteystiedot" (contact information; complete and natural)
+
+## Example Rewrites (English)
 
 Original: "I'm a digital marketer who loves experimenting with new ideas and sharing what I learn along the way."
-Revised: "I'm a digital marketer. I use AI coding tools to turn ideas into working products, and this site is where I document what I build and what I learn from building it."
+Revised: "I work in digital marketing. This site is where I share projects and what I've learned from building them."
 
 Original: "There's something powerful about sharing your work openly."
 Revised: Cut entirely. Don't make philosophical statements about the value of openness.

@@ -17,18 +17,18 @@ lang_switch: "In English"
 # Homepage
 hero_greeting: "Hei,"
 hero_name: "olen Esa Hakulinen"
-hero_subtitle_1: "Digitaalinen markkinoija."
-hero_subtitle_2: "Tervetuloa portfoliosivulleni, jossa jaan projekteja ja ideoita."
+hero_subtitle_1: "Tervetuloa kotisivulleni."
+hero_subtitle_2: "Löydät täältä projekteja ja ajatuksiani."
 hero_link_projects: "Projektit"
 hero_link_blog: "Blogi"
 
 section_latest_projects: "Viimeisimmät projektit"
-section_latest_projects_sub: "Mitä rakennan ja mitä opin siitä"
+section_latest_projects_sub: "Asioita, joita olen rakentanut."
 section_recent_posts: "Tuoreimmat julkaisut"
-section_recent_posts_sub: "Huomioita markkinoinnista, työkaluista ja asioista, joita olen oppinut matkan varrella"
+section_recent_posts_sub: "Kirjoituksia markkinoinnista ja projekteista."
 section_about: "Tietoa sivustosta"
-section_about_sub: "Mikä tämä on ja miten työskentelen"
-section_about_text: "Jos haluat tietää lisää sivustosta, aloita täältä."
+section_about_sub: ""
+section_about_text: "Lisätietoa minusta ja sivusta."
 
 btn_view_projects: "Katso projektit"
 btn_read_all_posts: "Lue kaikki julkaisut"
@@ -42,22 +42,23 @@ status_archived: "Arkistoitu"
 
 # Blog page
 blog_title: "Blogi"
-blog_description: "Julkaisuja digitaalisesta markkinoinnista, työkaluista ja projekteista."
+blog_description: "Kirjoituksia markkinoinnista ja projekteista."
 blog_empty_title: "Ei julkaisuja vielä"
-blog_empty_text: "Tarkista myöhemmin uudelleen!"
+blog_empty_text: "Tarkista myöhemmin uudelleen."
 
 # Projects page
 projects_title: "Projektit"
 projects_description: "Asioita, joita olen rakentanut."
 projects_empty_title: "Projekteja tulossa pian"
-projects_empty_text: "Dokumentoin parhaillaan nykyisiä kokeilujani. Tarkista myöhemmin uudelleen!"
+projects_empty_text: "Dokumentoin parhaillaan nykyisiä kokeilujani. Tarkista myöhemmin uudelleen."
 
 # About page
 about_title: "Tietoa"
 
 # Footer
-footer_navigate: "Navigoi"
-footer_connect: "Yhteys"
+footer_navigate: "Sivut"
+footer_connect: "Yhteystiedot"
+footer_bio: "Projekteja ja ajatuksia digitaalisesta markkinoinnista."
 
 # Project layout
 project_started: "Aloitettu"
@@ -75,4 +76,26 @@ breadcrumb_guides: "Oppaat"
 
 # Post
 written_by: "Kirjoittanut"
-min_read: "min luku"
+min_read: "min lukuaika"
+
+# Related content
+related_content: "Aiheeseen liittyvää"
+related_guides: "Aiheeseen liittyvät oppaat"
+
+# SEO page
+seo_last_updated: "Päivitetty viimeksi"
+
+# Guides page
+guides_title: "Oppaat"
+guides_description: "Kattavia oppaita digitaaliseen markkinointiin, hakukoneoptimointiin ja verkkoliiketoimintaan."
+guides_coming_soon: "Oppaita tulossa pian"
+guides_coming_soon_text: "Työstän parhaillaan kattavia oppaita eri aiheista. Tarkista myöhemmin uudelleen."
+
+# About page
+about_this_site: "Tämä sivusto"
+about_get_in_touch: "Ota yhteyttä"
+
+# 404 page
+error_title: "Sivua ei löydy"
+error_text: "Etsimääsi sivua ei ole olemassa tai se on siirretty."
+error_back_home: "Takaisin etusivulle"

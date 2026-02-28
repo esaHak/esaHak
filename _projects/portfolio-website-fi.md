@@ -1,6 +1,6 @@
 ---
 title: "Portfoliosivusto"
-description: "Tämä sivusto. Jekyll, GitHub Pages, rakennettu Claude Codella."
+description: "Tämä sivusto. Jekyll, GitHub Pages ja CSS."
 image: /assets/images/projects/esahakulinen-mixtape-cassette.webp
 date: 2025-01-20
 status: live
@@ -9,7 +9,6 @@ tech:
   - Jekyll
   - jekyll-polyglot
   - GitHub Pages
-  - Claude Code
   - Markdown
   - CSS
 live_url: "https://esahakulinen.fi"
