@@ -5,9 +5,14 @@ Parameters:
   - author: Author name override (optional - defaults to site.author.name)
 {% endcomment %}
 
+{% assign strings = site.data[site.active_lang].strings %}
+{% assign author_name = include.author | default: site.author.name %}
+
 <div class="post-author">
-  {% if site.author.avatar %}
+  {% if author_name != site.author.name %}
+  <img src="{{ '/assets/images/author/admin.svg' | relative_url }}" alt="{{ author_name }}" class="author-avatar">
+  {% elsif site.author.avatar %}
   <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" class="author-avatar">
   {% endif %}
-  <p>Written by <strong>{{ include.author | default: site.author.name }}</strong></p>
+  <p>{{ strings.written_by }} <strong>{{ author_name }}</strong></p>
 </div>

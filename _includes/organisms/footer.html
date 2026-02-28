@@ -1,3 +1,5 @@
+{% assign strings = site.data[site.active_lang].strings %}
+
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-content">
@@ -7,20 +9,17 @@
       </div>
 
       <div class="footer-section">
-        <h4>Navigate</h4>
+        <h4>{{ strings.footer_navigate }}</h4>
         <ul>
-          <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-          <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
-          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+          <li><a href="{{ strings.nav_url_blog | relative_url }}">{{ strings.nav_blog }}</a></li>
+          <li><a href="{{ strings.nav_url_projects | relative_url }}">{{ strings.nav_projects }}</a></li>
+          <li><a href="{{ strings.nav_url_about | relative_url }}">{{ strings.nav_about }}</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
-        <h4>Connect</h4>
+        <h4>{{ strings.footer_connect }}</h4>
         <ul class="social-links">
-          {% if site.author.twitter %}
-            {% include molecules/social-link.html platform="twitter" handle=site.author.twitter %}
-          {% endif %}
           {% if site.author.linkedin %}
             {% include molecules/social-link.html platform="linkedin" handle=site.author.linkedin %}
           {% endif %}
@@ -32,7 +31,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. Building in public.</p>
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}.</p>
     </div>
   </div>
 </footer>

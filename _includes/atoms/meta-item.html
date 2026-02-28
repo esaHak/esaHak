@@ -16,9 +16,10 @@ Parameters:
       {{ include.value | date: date_format }}
     </time>
   {% when 'read-time' %}
+    {% assign strings = site.data[site.active_lang].strings %}
     <span class="read-time">
       {% if include.icon %}{% include atoms/icon.html name="clock" size=16 %}{% endif %}
-      {{ include.value }} min read
+      {{ include.value }} {{ strings.min_read }}
     </span>
   {% when 'text' %}
     <span>{{ include.value }}</span>

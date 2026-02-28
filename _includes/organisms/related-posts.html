@@ -9,7 +9,7 @@ Parameters:
 {% if include.posts.size > 0 %}
 <section class="related-content">
   <div class="container">
-    <h2>{{ include.title | default: "Related Content" }}</h2>
+    <h2>{{ include.title | default: "Related content" }}</h2>
     <div class="related-grid">
       {% for item in include.posts %}
       <a href="{{ item.url | relative_url }}" class="related-card">

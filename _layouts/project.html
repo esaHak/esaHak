@@ -1,6 +1,34 @@
 ---
 layout: default
 ---
+{% assign strings = site.data[site.active_lang].strings %}
+
+{% comment %} CreativeWork schema for project pages {% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": {{ page.title | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "url": "{{ page.url | absolute_url }}"{% if page.image %},
+  "image": "{{ page.image | absolute_url }}"{% endif %},
+  "inLanguage": "{{ site.active_lang }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "url": "{{ '/about/' | absolute_url }}"{% if site.social.links %},
+    "sameAs": {{ site.social.links | jsonify }}{% endif %}
+  },
+  "dateCreated": "{{ page.date | date_to_xmlschema }}"{% if page.tech %},
+  "keywords": {{ page.tech | jsonify }}{% endif %}{% if page.live_url %},
+  "mainEntityOfPage": "{{ page.live_url }}"{% endif %}{% if page.github_url %},
+  "isBasedOn": "{{ page.github_url }}"{% endif %}{% if page.status == 'live' %},
+  "creativeWorkStatus": "Published"{% elsif page.status == 'in-progress' %},
+  "creativeWorkStatus": "Draft"{% elsif page.status == 'experiment' %},
+  "creativeWorkStatus": "Draft"{% endif %}
+}
+</script>
+
 <article class="project">
   <header class="project-header">
     <div class="container">
@@ -18,20 +46,20 @@ layout: default
 
       <div class="project-meta">
         {% if page.date %}
-        <span class="project-date">Started {{ page.date | date: "%B %Y" }}</span>
+        <span class="project-date">{{ strings.project_started }} {{ page.date | date: "%B %Y" }}</span>
         {% endif %}
         {% include molecules/tech-stack.html techs=page.tech %}
       </div>
 
       <div class="project-links">
         {% if page.live_url %}
-          {% include atoms/button.html text="View Live" url=page.live_url style="primary" target="_blank" %}
+          {% include atoms/button.html text=strings.project_view_live url=page.live_url style="primary" target="_blank" %}
         {% endif %}
         {% if page.github_url %}
-          {% include atoms/button.html text="GitHub" url=page.github_url style="secondary" target="_blank" %}
+          {% include atoms/button.html text=strings.project_github url=page.github_url style="secondary" target="_blank" %}
         {% endif %}
         {% if page.demo_path %}
-          {% include atoms/button.html text="Interactive Demo" url=page.demo_path style="secondary" %}
+          {% include atoms/button.html text=strings.project_demo url=page.demo_path style="secondary" %}
         {% endif %}
       </div>
     </div>
@@ -49,7 +77,7 @@ layout: default
 
   {% if page.lessons %}
   <section class="project-lessons container">
-    <h2>Key Learnings</h2>
+    <h2>{{ strings.project_key_learnings }}</h2>
     <ul>
       {% for lesson in page.lessons %}
       <li>{{ lesson }}</li>
@@ -60,7 +88,7 @@ layout: default
 
   {% if page.results %}
   <section class="project-results container">
-    <h2>Results</h2>
+    <h2>{{ strings.project_results }}</h2>
     <div class="results-grid">
       {% for result in page.results %}
       <div class="result-card">

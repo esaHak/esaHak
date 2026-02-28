@@ -1,6 +1,21 @@
+{% assign strings = site.data[site.active_lang].strings %}
+{% if page.twin %}
+  {% if site.active_lang == "fi" %}
+    {% assign lang_url = "/en" | append: page.twin %}
+  {% else %}
+    {% assign lang_url = page.twin %}
+  {% endif %}
+{% else %}
+  {% if site.active_lang == "fi" %}
+    {% assign lang_url = "/en" | append: page.url %}
+  {% else %}
+    {% assign lang_url = page.url | replace_first: "/en/", "/" %}
+  {% endif %}
+{% endif %}
+
 <nav class="site-nav">
   <div class="nav-container">
-    <a href="{{ '/' | relative_url }}" class="nav-logo">&lt;EsaHakulinen/&gt;</a>
+    <a href="{{ '/' | relative_url }}" class="nav-logo">esaHakulinen</a>
 
     <button class="nav-toggle" aria-label="Toggle navigation">
       <span></span>
@@ -9,13 +24,15 @@
     </button>
 
     <ul class="nav-links">
-      {% include molecules/nav-link.html text="Home" url="/" match="/" exact=true %}
-      {% include molecules/nav-link.html text="Blog" url="/blog/" match="/blog" %}
-      {% include molecules/nav-link.html text="Projects" url="/projects/" match="/projects" %}
-      {% include molecules/nav-link.html text="Guides" url="/guides/" match="/guides" %}
-      {% include molecules/nav-link.html text="About" url="/about/" match="/about/" exact=true %}
-
-</label>
+      {% include molecules/nav-link.html text=strings.nav_home url=strings.nav_url_home match=strings.nav_url_home exact=true %}
+      {% include molecules/nav-link.html text=strings.nav_blog url=strings.nav_url_blog match=strings.nav_url_blog %}
+      {% include molecules/nav-link.html text=strings.nav_projects url=strings.nav_url_projects match=strings.nav_url_projects %}
+      {% include molecules/nav-link.html text=strings.nav_about url=strings.nav_url_about match=strings.nav_url_about exact=true %}
+      <li class="nav-link-mobile-lang">
+        <a {% static_href %}href="{{ lang_url }}"{% endstatic_href %} class="lang-switcher-mobile">{{ strings.lang_switch }}</a>
+      </li>
     </ul>
+
+    <a {% static_href %}href="{{ lang_url }}"{% endstatic_href %} class="lang-switcher">{{ strings.lang_switch }}</a>
   </div>
 </nav>
