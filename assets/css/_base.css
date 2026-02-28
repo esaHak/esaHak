@@ -49,9 +49,12 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
-a.nav-logo,
+a.nav-logo {
+  color: var(--color-text);
+}
+
 a.nav-logo:hover {
-  color: transparent;
+  color: var(--color-primary);
 }
 
 img {
