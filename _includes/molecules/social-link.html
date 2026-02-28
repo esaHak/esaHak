@@ -1,0 +1,30 @@
+{% comment %}
+Social Link Molecule
+Usage: {% include molecules/social-link.html platform="twitter" handle="username" %}
+Parameters:
+  - platform: "twitter" | "linkedin" | "github" (required)
+  - handle: Username/handle (required)
+  - show_icon: Show icon (default: false)
+  - show_text: Show text (default: true)
+{% endcomment %}
+
+{% assign show_text = include.show_text | default: true %}
+
+{% case include.platform %}
+  {% when 'twitter' %}
+    {% assign url = "https://twitter.com/" | append: include.handle %}
+    {% assign label = "Twitter" %}
+  {% when 'linkedin' %}
+    {% assign url = "https://linkedin.com/in/" | append: include.handle %}
+    {% assign label = "LinkedIn" %}
+  {% when 'github' %}
+    {% assign url = "https://github.com/" | append: include.handle %}
+    {% assign label = "GitHub" %}
+{% endcase %}
+
+<li>
+  <a href="{{ url }}" target="_blank" rel="noopener">
+    {% if include.show_icon %}{% include atoms/icon.html name=include.platform size=18 %}{% endif %}
+    {% if show_text %}{{ label }}{% endif %}
+  </a>
+</li>

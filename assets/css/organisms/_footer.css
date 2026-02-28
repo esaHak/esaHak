@@ -1,0 +1,67 @@
+/* =============================================================================
+   ORGANISM: Site Footer - Card style on paper canvas
+   =============================================================================
+   Footer uses a card-on-paper style with light background, matching the site's
+   editorial design. See main.css for the authoritative definitions; this file
+   is kept in sync as a reference.
+============================================================================= */
+
+.site-footer {
+  padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-xl);
+}
+
+.footer-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.footer-section h4 {
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-section p {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-section a {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+.footer-section a:hover {
+  color: var(--color-primary);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-xl);
+  text-align: left;
+}
+
+.footer-bottom p {
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+  margin: 0;
+}

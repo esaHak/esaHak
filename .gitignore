@@ -1,0 +1,31 @@
+# Generated site output (GitHub Pages builds this)
+_site/
+
+# Jekyll cache
+.jekyll-cache/
+.jekyll-metadata
+
+# macOS system files
+.DS_Store
+**/.DS_Store
+
+# Ruby/Bundler
+vendor/
+.bundle/
+
+# Node (if ever used)
+node_modules/
+
+# Environment and secrets
+.env
+.env.*
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db

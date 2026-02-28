@@ -1,0 +1,51 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <div class="container">
+      {% include organisms/breadcrumbs.html %}
+
+      {% include molecules/category-list.html categories=page.categories %}
+
+      <h1 class="post-title">{{ page.title }}</h1>
+
+      {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+      {% endif %}
+
+      {% include molecules/post-meta.html date=page.date read_time=page.read_time %}
+    </div>
+  </header>
+
+  {% if page.image %}
+  <div class="post-image">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  </div>
+  {% endif %}
+
+  <div class="post-content container">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer container">
+    {% include molecules/tag-list.html tags=page.tags %}
+
+    {% include organisms/post-author.html author=page.author %}
+
+    {% assign lang_posts = site.posts | where: "lang", page.lang | sort: "date" %}
+    {% assign prev_post = nil %}
+    {% assign next_post = nil %}
+    {% assign found_current = false %}
+    {% for p in lang_posts %}
+      {% if p.url == page.url %}
+        {% assign found_current = true %}
+      {% elsif found_current and next_post == nil %}
+        {% assign next_post = p %}
+      {% elsif found_current == false %}
+        {% assign prev_post = p %}
+      {% endif %}
+    {% endfor %}
+    {% include organisms/post-navigation.html previous=prev_post next=next_post %}
+  </footer>
+</article>

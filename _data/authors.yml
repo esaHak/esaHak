@@ -1,0 +1,6 @@
+# Author lookup for jekyll-seo-tag schema resolution.
+# Visual display name comes from page.author (e.g. "Admin").
+# Schema markup uses the name field below.
+Admin:
+  name: "Esa Hakulinen"
+  url: "https://esahakulinen.fi/about/"

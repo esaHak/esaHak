@@ -1,0 +1,21 @@
+{% comment %}
+Tech Stack Molecule
+Usage: {% include molecules/tech-stack.html techs=page.tech limit=3 %}
+Parameters:
+  - techs: Array of technology names (required)
+  - limit: Max number to display (optional)
+{% endcomment %}
+
+{% if include.techs %}
+<div class="project-tech">
+  {% if include.limit %}
+    {% for tech in include.techs limit: include.limit %}
+      {% include atoms/tag.html text=tech type="tech-tag" %}
+    {% endfor %}
+  {% else %}
+    {% for tech in include.techs %}
+      {% include atoms/tag.html text=tech type="tech-tag" %}
+    {% endfor %}
+  {% endif %}
+</div>
+{% endif %}

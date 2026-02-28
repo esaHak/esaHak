@@ -1,0 +1,17 @@
+{% comment %}
+CTA Box Molecule
+Usage: {% include molecules/cta-box.html title="Get Started" description="Start your journey" button_text="Learn More" button_url="/start/" %}
+Parameters:
+  - title: CTA heading (required)
+  - description: CTA description text (optional)
+  - button_text: Button text (required)
+  - button_url: Button URL (required)
+{% endcomment %}
+
+<div class="cta-box">
+  <h3>{{ include.title }}</h3>
+  {% if include.description %}
+  <p>{{ include.description }}</p>
+  {% endif %}
+  {% include atoms/button.html text=include.button_text url=include.button_url style="primary" %}
+</div>

@@ -1,0 +1,27 @@
+{% comment %}
+Post Navigation Organism
+Usage: {% include organisms/post-navigation.html previous=page.previous next=page.next %}
+Parameters:
+  - previous: Previous post object (optional)
+  - next: Next post object (optional)
+{% endcomment %}
+
+{% if include.previous or include.next %}
+<nav class="post-nav" aria-label="Post navigation">
+  {% if include.previous %}
+  <a href="{{ include.previous.url | relative_url }}" class="post-nav-prev">
+    {% include atoms/icon.html name="arrow-left" size=16 %}
+    <span>{{ include.previous.title }}</span>
+  </a>
+  {% else %}
+  <span></span>
+  {% endif %}
+
+  {% if include.next %}
+  <a href="{{ include.next.url | relative_url }}" class="post-nav-next">
+    <span>{{ include.next.title }}</span>
+    {% include atoms/icon.html name="arrow-right" size=16 %}
+  </a>
+  {% endif %}
+</nav>
+{% endif %}

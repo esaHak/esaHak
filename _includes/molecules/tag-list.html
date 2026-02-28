@@ -1,0 +1,18 @@
+{% comment %}
+Tag List Molecule
+Usage: {% include molecules/tag-list.html tags=page.tags %}
+Parameters:
+  - tags: Array of tag names (required)
+  - base_url: Base URL for tag links (default: "/blog/tags/")
+{% endcomment %}
+
+{% assign base = include.base_url | default: "/blog/tags/" %}
+
+{% if include.tags %}
+<div class="post-tags">
+  {% for tag in include.tags %}
+    {% assign tag_url = base | append: "#" | append: tag | slugify %}
+    {% include atoms/tag.html text=tag url=tag_url type="tag" %}
+  {% endfor %}
+</div>
+{% endif %}

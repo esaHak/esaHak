@@ -1,0 +1,16 @@
+{% comment %}
+Page Header Organism
+Usage: {% include organisms/page-header.html title="Blog" description="Latest posts" %}
+Parameters:
+  - title: Page title (required)
+  - description: Page description (optional)
+{% endcomment %}
+
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">{{ include.title }}</h1>
+    {% if include.description %}
+    <p class="hero-subtitle">{{ include.description }}</p>
+    {% endif %}
+  </div>
+</section>

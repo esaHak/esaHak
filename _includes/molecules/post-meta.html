@@ -1,0 +1,17 @@
+{% comment %}
+Post Meta Molecule
+Usage: {% include molecules/post-meta.html date=page.date read_time=page.read_time %}
+Parameters:
+  - date: Post date (required)
+  - read_time: Reading time in minutes (optional)
+  - format: Date format (default: "%B %d, %Y")
+  - show_icons: Show icons (default: false)
+{% endcomment %}
+
+<div class="post-meta">
+  {% include atoms/meta-item.html type="date" value=include.date format=include.format icon=include.show_icons %}
+  {% if include.read_time %}
+    <span class="meta-separator">·</span>
+    {% include atoms/meta-item.html type="read-time" value=include.read_time icon=include.show_icons %}
+  {% endif %}
+</div>

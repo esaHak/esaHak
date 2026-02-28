@@ -1,0 +1,26 @@
+{% comment %}
+Meta Item Atom
+Usage: {% include atoms/meta-item.html type="date" value=page.date %}
+Parameters:
+  - type: "date" | "read-time" | "text" (required)
+  - value: The value to display (required)
+  - format: Date format for type="date" (default: "%B %d, %Y")
+  - icon: Show icon (default: false)
+{% endcomment %}
+
+{% case include.type %}
+  {% when 'date' %}
+    {% assign date_format = include.format | default: "%B %d, %Y" %}
+    <time datetime="{{ include.value | date_to_xmlschema }}">
+      {% if include.icon %}{% include atoms/icon.html name="calendar" size=16 %}{% endif %}
+      {{ include.value | date: date_format }}
+    </time>
+  {% when 'read-time' %}
+    {% assign strings = site.data[site.active_lang].strings %}
+    <span class="read-time">
+      {% if include.icon %}{% include atoms/icon.html name="clock" size=16 %}{% endif %}
+      {{ include.value }} {{ strings.min_read }}
+    </span>
+  {% when 'text' %}
+    <span>{{ include.value }}</span>
+{% endcase %}

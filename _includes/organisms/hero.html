@@ -1,0 +1,31 @@
+{% comment %}
+Hero Section Organism
+Usage: {% include organisms/hero.html title="Welcome" subtitle="Description" %}
+Parameters:
+  - title: Hero title (required)
+  - subtitle: Hero subtitle (optional)
+  - cta_primary_text: Primary CTA button text (optional)
+  - cta_primary_url: Primary CTA button URL (optional)
+  - cta_secondary_text: Secondary CTA button text (optional)
+  - cta_secondary_url: Secondary CTA button URL (optional)
+{% endcomment %}
+
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">{{ include.title }}</h1>
+    {% if include.subtitle %}
+    <p class="hero-subtitle">{{ include.subtitle }}</p>
+    {% endif %}
+
+    {% if include.cta_primary_text or include.cta_secondary_text %}
+    <div class="hero-cta">
+      {% if include.cta_primary_text %}
+        {% include atoms/button.html text=include.cta_primary_text url=include.cta_primary_url style="primary" %}
+      {% endif %}
+      {% if include.cta_secondary_text %}
+        {% include atoms/button.html text=include.cta_secondary_text url=include.cta_secondary_url style="secondary" %}
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>

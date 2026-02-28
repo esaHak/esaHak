@@ -1,0 +1,32 @@
+/* =============================================================================
+   MOLECULE: Post Meta (date, read time, etc.)
+============================================================================= */
+
+.post-meta {
+  display: flex;
+  gap: var(--spacing-lg);
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+.post-meta .meta-separator {
+  color: var(--color-text-light);
+}
+
+.read-time {
+  color: var(--color-text-light);
+}
+
+/* Project meta variation */
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.project-date {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}

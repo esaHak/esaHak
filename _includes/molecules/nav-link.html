@@ -1,0 +1,29 @@
+{% comment %}
+Nav Link Molecule
+Usage: {% include molecules/nav-link.html text="Blog" url="/blog/" match="/blog" %}
+Parameters:
+  - text: Link text (required)
+  - url: Link URL (required)
+  - match: URL pattern to match for active state (optional)
+  - exact: Use exact match instead of contains (default: false)
+{% endcomment %}
+
+{% if include.exact %}
+  {% if page.url == include.match %}
+    {% assign is_active = true %}
+  {% else %}
+    {% assign is_active = false %}
+  {% endif %}
+{% else %}
+  {% if page.url contains include.match %}
+    {% assign is_active = true %}
+  {% else %}
+    {% assign is_active = false %}
+  {% endif %}
+{% endif %}
+
+<li>
+  <a href="{{ include.url | relative_url }}"{% if is_active %} class="active"{% endif %}>
+    {{ include.text }}
+  </a>
+</li>

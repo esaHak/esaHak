@@ -1,0 +1,52 @@
+/* =============================================================================
+   ATOM: Buttons - Arrow link style
+   =============================================================================
+   Buttons use a minimal arrow-link style matching the site's editorial tone.
+   Primary and secondary variants only affect color. See main.css for the
+   authoritative definitions; this file is kept in sync as a reference.
+============================================================================= */
+
+.btn {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+}
+
+.btn::after {
+  content: '\2192';
+  margin-left: var(--spacing-xs);
+  transition: margin-left var(--transition);
+}
+
+.btn:hover {
+  color: var(--color-primary-dark);
+}
+
+.btn:hover::after {
+  margin-left: var(--spacing-sm);
+}
+
+/* Primary and secondary styles affect color only */
+.btn-primary {
+  color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  color: var(--color-text);
+}
+
+.btn-secondary:hover {
+  color: var(--color-primary);
+}

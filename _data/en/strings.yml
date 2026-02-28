@@ -1,0 +1,101 @@
+# English UI strings
+# Used by templates via site.data[site.active_lang].strings
+
+# Navigation
+nav_home: "Home"
+nav_blog: "Blog"
+nav_projects: "Projects"
+nav_about: "About"
+nav_url_home: "/"
+nav_url_blog: "/blog/"
+nav_url_projects: "/projects/"
+nav_url_about: "/about/"
+
+# Language switcher
+lang_switch: "Suomeksi"
+
+# Homepage
+hero_greeting: "Hi,"
+hero_name: "I'm Esa Hakulinen"
+hero_subtitle_1: "Welcome to my site."
+hero_subtitle_2: "Here you'll find projects and thoughts I've shared."
+hero_link_projects: "Projects"
+hero_link_blog: "Blog"
+
+section_latest_projects: "Latest projects"
+section_latest_projects_sub: "Things I've built."
+section_recent_posts: "Recent posts"
+section_recent_posts_sub: "Writing on marketing and projects."
+section_about: "About this site"
+section_about_sub: ""
+section_about_text: "More about me and the site."
+
+btn_view_projects: "View projects"
+btn_read_all_posts: "Read all posts"
+btn_about: "About"
+
+# Status badges
+status_live: "Live"
+status_progress: "In progress"
+status_experiment: "Experiment"
+status_archived: "Archived"
+
+# Blog page
+blog_title: "Blog"
+blog_description: "Writing on marketing and projects."
+blog_empty_title: "No posts yet"
+blog_empty_text: "Check back later."
+
+# Projects page
+projects_title: "Projects"
+projects_description: "Things I've built."
+projects_empty_title: "Projects coming soon"
+projects_empty_text: "I'm working on documenting my current experiments. Check back later."
+
+# About page
+about_title: "About"
+
+# Footer
+footer_navigate: "Pages"
+footer_connect: "Contact"
+footer_bio: "Projects and thoughts on digital marketing."
+
+# Project layout
+project_started: "Started"
+project_key_learnings: "Key learnings"
+project_results: "Results"
+project_view_live: "View live"
+project_github: "GitHub"
+project_demo: "Interactive demo"
+
+# Breadcrumbs
+breadcrumb_home: "Home"
+breadcrumb_blog: "Blog"
+breadcrumb_projects: "Projects"
+breadcrumb_guides: "Guides"
+
+# Post
+written_by: "Written by"
+min_read: "min read"
+
+# Related content
+related_content: "Related content"
+related_guides: "Related guides"
+
+# SEO page
+seo_last_updated: "Last updated"
+
+# Guides page
+guides_title: "Guides"
+guides_description: "In-depth resources on digital marketing, SEO, and building online."
+guides_coming_soon: "Guides coming soon"
+guides_coming_soon_text: "I'm working on comprehensive guides for various topics. Check back later."
+
+# About page
+about_this_site: "This site"
+about_get_in_touch: "Get in touch"
+
+# 404 page
+error_title: "Page not found"
+error_text: "The page you're looking for doesn't exist or has been moved."
+error_back_home: "Back to home"

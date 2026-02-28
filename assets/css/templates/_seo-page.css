@@ -1,0 +1,32 @@
+/* =============================================================================
+   TEMPLATE: SEO Page / Guide Layout
+============================================================================= */
+
+.seo-header {
+  padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  background: var(--color-bg-alt);
+}
+
+.seo-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.seo-description {
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+}
+
+.seo-updated {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin-top: var(--spacing-lg);
+}
+
+.seo-content {
+  padding: var(--spacing-2xl) var(--spacing-lg);
+}
+
+.seo-cta {
+  padding: var(--spacing-2xl) var(--spacing-lg);
+}

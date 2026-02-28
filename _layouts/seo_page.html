@@ -1,0 +1,53 @@
+---
+layout: default
+---
+{% assign strings = site.data[site.active_lang].strings %}
+
+<article class="seo-page">
+  <header class="seo-header">
+    <div class="container">
+      {% include organisms/breadcrumbs.html %}
+
+      {% if page.category %}
+      <span class="seo-category">{{ page.category }}</span>
+      {% endif %}
+
+      <h1 class="seo-title">{{ page.title }}</h1>
+
+      {% if page.description %}
+      <p class="seo-description">{{ page.description }}</p>
+      {% endif %}
+
+      {% if page.last_updated %}
+      <p class="seo-updated">{{ strings.seo_last_updated }}: {{ page.last_updated | date: "%B %d, %Y" }}</p>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if page.image %}
+  <div class="seo-image">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  </div>
+  {% endif %}
+
+  <div class="seo-content container">
+    {{ content }}
+  </div>
+
+  {% if page.related_pages %}
+  {% assign related_posts = "" | split: "" %}
+  {% for related in page.related_pages %}
+    {% assign related_page = site.seo_pages | where: "slug", related | first %}
+    {% if related_page %}
+      {% assign related_posts = related_posts | push: related_page %}
+    {% endif %}
+  {% endfor %}
+  {% include organisms/related-posts.html posts=related_posts title=strings.related_guides %}
+  {% endif %}
+
+  {% if page.cta %}
+  <section class="seo-cta container">
+    {% include molecules/cta-box.html title=page.cta.title description=page.cta.description button_text=page.cta.button button_url=page.cta.url %}
+  </section>
+  {% endif %}
+</article>

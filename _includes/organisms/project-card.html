@@ -1,0 +1,34 @@
+{% comment %}
+Project Card Organism
+Usage: {% include organisms/project-card.html project=project %}
+Parameters:
+  - project: Project object (required)
+{% endcomment %}
+
+<a href="{{ include.project.url | relative_url }}" class="project-card">
+  {% if include.project.image %}
+  <div class="project-card-image">
+    <img src="{{ include.project.image | relative_url }}" alt="{{ include.project.title }}" loading="lazy">
+  </div>
+  {% else %}
+  <div class="project-card-image project-card-image--placeholder">
+    <span>{{ include.project.title | slice: 0 }}</span>
+  </div>
+  {% endif %}
+
+  <div class="project-card-content">
+    <div class="project-card-meta-row">
+      <div class="project-status">
+        {% include atoms/badge.html status=include.project.status %}
+      </div>
+      {% if include.project.date %}
+      <span class="project-card-year">{{ include.project.date | date: "%Y" }}</span>
+      {% endif %}
+    </div>
+
+    <h3 class="project-card-title">{{ include.project.title }}</h3>
+    <p class="project-card-description">{{ include.project.description | truncate: 120 }}</p>
+
+    {% include molecules/tech-stack.html techs=include.project.tech limit=3 %}
+  </div>
+</a>
