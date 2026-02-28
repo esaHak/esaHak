@@ -14,6 +14,12 @@ This guide explains how to add and manage content on your portfolio site.
 
 ---
 
+## Voice & Style
+
+Before writing any content, read `docs/VOICE_AND_STYLE.md`. It documents the site's tone, voice principles, and common pitfalls to avoid. Key rules: be pragmatic and factual on early-journey pages (home, about). Save design philosophy and deeper thinking for project write-ups where there's actual context. Never claim expertise the reader has no reason to believe yet.
+
+---
+
 ## Quick Start
 
 Your site uses Jekyll with GitHub Pages. The basic workflow is:
@@ -36,6 +42,15 @@ Files MUST follow this format: `YYYY-MM-DD-title-slug.md`
 
 Example: `2025-01-20-my-first-post.md`
 
+### Multi-language Blog Posts
+
+Every blog post needs both a Finnish and English version. Create two files per post:
+
+- `YYYY-MM-DD-title-slug-fi.md` (Finnish, `lang: fi`)
+- `YYYY-MM-DD-title-slug.md` (English, `lang: en`)
+
+Finnish posts use `/blogi/slug/` permalinks; English posts use `/blog/slug/`. Link them with the `twin` field so the language switcher works.
+
 ### Template
 
 ```markdown
@@ -47,6 +62,9 @@ categories: [Category Name]
 tags: [tag1, tag2, tag3]
 read_time: 5
 image: /assets/images/post-image.jpg  # Optional
+permalink: /blog/your-slug/           # English: /blog/slug/, Finnish: /blogi/slug/
+twin: /blogi/your-slug/               # Points to the other language version
+lang: en                              # fi or en
 ---
 
 Your content goes here in Markdown format.
@@ -77,6 +95,9 @@ Code blocks work too
 | `title` | Yes | Post title |
 | `description` | Yes | SEO description (< 160 chars) |
 | `date` | Yes | Publication date (YYYY-MM-DD) |
+| `lang` | Yes | Language code: `fi` or `en` |
+| `permalink` | Yes | URL path. Finnish: `/blogi/slug/`, English: `/blog/slug/` |
+| `twin` | Yes | Permalink of the other language version (for language switcher) |
 | `categories` | No | Single category in array format |
 | `tags` | No | Multiple tags for organization |
 | `read_time` | No | Estimated minutes to read |
