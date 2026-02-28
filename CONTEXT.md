@@ -354,3 +354,23 @@ Multi-language issues: Ensure every content file has `lang:` in front matter. If
 - The `_config.yml` default `permalink: /blog/:title/` applies to the default language (Finnish), giving Finnish posts English URL prefixes; every blog post must override with an explicit permalink
 - Content listing pages (blog.html, projects.html, etc.) must filter by `| where: "lang", site.active_lang` to avoid showing both language versions in listings
 - CLAUDE.md files inside `_posts/` or `_projects/` directories will be processed as content unless excluded; add them to _config.yml exclude list
+
+### Git lock file issues in Cowork / mounted filesystem environments
+
+When working on this repo through Cowork (or any environment where the repo is on a mounted filesystem), git operations can leave behind `.git/HEAD.lock` and `.git/index.lock` files that the filesystem refuses to delete. This blocks all subsequent git commands with "Another git process seems to be running" errors.
+
+Symptoms: `rm` fails with "Operation not permitted" even though the user owns the file. The issue is at the filesystem/mount level, not a permissions problem.
+
+Workaround that works:
+1. Clone the repo to a local (non-mounted) path: `git clone /path/to/mounted/repo /tmp/repo-temp`
+2. Copy the working tree into the clone: `rsync -a --exclude='.git' --exclude='_site' --exclude='.jekyll-cache' /path/to/mounted/repo/ /tmp/repo-temp/`
+3. Set git identity in the clone: `git config user.name` / `git config user.email` (copy values from the original repo's config)
+4. Make all commits in `/tmp/repo-temp` (lock files can be cleaned up normally on a local filesystem)
+5. Push to a temporary branch in the original repo: `git push origin branch:refs/heads/branch-temp` (pushing directly to the checked-out branch is denied by default)
+6. In the original repo, update the branch ref manually: `echo "<commit-hash>" > .git/refs/heads/<branch>`
+7. Copy the clean index from the temp clone: `cp /tmp/repo-temp/.git/index .git/index`
+8. Verify with `git status` (should show clean working tree)
+
+Things that do NOT work: `rm`, `mv`, `unlink()` via Python/Perl, or `truncate` followed by `rm`. Truncating the lock file to zero bytes does not help because git checks for file existence, not content.
+
+If git is only partially stuck (lock file exists but git add/status still works), you can sometimes recover by truncating the lock file with `: > .git/HEAD.lock` and then proceeding. But this is unreliable.
