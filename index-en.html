@@ -1,0 +1,102 @@
+---
+layout: default
+title: Home
+description: Esa Hakulinen, digital marketer. Projects, experiments, and the thinking behind them.
+image: /assets/images/pages/home.jpg
+permalink: /
+twin: /
+lang: en
+---
+
+{% assign strings = site.data[site.active_lang].strings %}
+
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">{{ strings.hero_greeting }}<br>{{ strings.hero_name }}</h1>
+    <p class="hero-subtitle">
+      {{ strings.hero_subtitle_1 }}<br>
+      {{ strings.hero_subtitle_2 }}
+    </p>
+    <div class="hero-links">
+      <a href="{{ strings.nav_url_projects | relative_url }}">{{ strings.hero_link_projects }}</a>
+      <a href="{{ strings.nav_url_blog | relative_url }}">{{ strings.hero_link_blog }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div class="section-header">
+      <h2 class="section-title">{{ strings.section_latest_projects }}</h2>
+      <p class="section-subtitle">{{ strings.section_latest_projects_sub }}</p>
+    </div>
+
+    <div class="project-grid">
+      {% assign recent_projects = site.projects | where: "lang", site.active_lang | sort: 'date' | reverse | limit: 3 %}
+      {% for project in recent_projects %}
+      <a href="{{ project.url | relative_url }}" class="project-card">
+        {% if project.image %}
+        <div class="project-card-image">
+          <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+        </div>
+        {% else %}
+        <div class="project-card-image" style="display: flex; align-items: center; justify-content: center;">
+          <span style="color: var(--color-text-light);">{{ project.title | truncate: 20 }}</span>
+        </div>
+        {% endif %}
+        <div class="project-card-content">
+          <div class="project-status">
+            {% if project.status == 'live' %}
+            <span class="status status-live">{{ strings.status_live }}</span>
+            {% elsif project.status == 'in-progress' %}
+            <span class="status status-progress">{{ strings.status_progress }}</span>
+            {% elsif project.status == 'experiment' %}
+            <span class="status status-experiment">{{ strings.status_experiment }}</span>
+            {% endif %}
+          </div>
+          <h3 class="project-card-title">{{ project.title }}</h3>
+          <p class="project-card-description">{{ project.description }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <div class="mt-2">
+      <a href="{{ strings.nav_url_projects | relative_url }}" class="btn btn-secondary">{{ strings.btn_view_projects }}</a>
+    </div>
+</section>
+
+<section class="blog-list">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{{ strings.section_recent_posts }}</h2>
+      <p class="section-subtitle">{{ strings.section_recent_posts_sub }}</p>
+    </div>
+
+    {% assign recent_posts = site.posts | where: "lang", site.active_lang | limit: 3 %}
+    {% for post in recent_posts %}
+      {% include organisms/post-card.html post=post %}
+    {% endfor %}
+
+    <div class="mt-1">
+      <a href="{{ strings.nav_url_blog | relative_url }}" class="btn btn-secondary">{{ strings.btn_read_all_posts }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div class="section-header">
+      <h2 class="section-title">{{ strings.section_about }}</h2>
+      <p class="section-subtitle">{{ strings.section_about_sub }}</p>
+    </div>
+
+    <p>
+      {{ strings.section_about_text }}
+    </p>
+
+    <div class="mt-2">
+      <a href="{{ strings.nav_url_about | relative_url }}" class="btn btn-primary">{{ strings.btn_about }}</a>
+    </div>
+  </div>
+</section>

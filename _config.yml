@@ -9,16 +9,27 @@ title: "Esa Hakulinen"
 description: "Digital marketing expertise, experiments, and insights. Building in public."
 url: "https://esahakulinen.fi"
 baseurl: ""
+lang: fi
 
 # Author Information
 author:
   name: "Esa Hakulinen"
   email: ""  # Add your email if you want
   bio: "Digital marketer experimenting with projects and sharing expertise."
-  avatar: "/assets/images/author/profile.jpg"  # Author profile image
-  twitter: ""  # Add your Twitter handle (without @)
-  linkedin: ""  # Add your LinkedIn username
-  github: ""  # Add your GitHub username
+  # avatar: "/assets/images/author/profile.jpg"  # Uncomment when image is added
+  # twitter: ""  # Uncomment and add handle when ready
+  linkedin: "esahakulinen"
+  github: "esaHak"
+
+# Logo for Person/Organization schema (used by jekyll-seo-tag)
+# logo: "/assets/images/author/profile.jpg"  # Uncomment when image is added
+
+# Social links for sameAs schema property (used by jekyll-seo-tag)
+social:
+  name: "Esa Hakulinen"
+  links:
+    - https://www.linkedin.com/in/esahakulinen
+    - https://github.com/esaHak
 
 # Build Settings
 markdown: kramdown
@@ -32,8 +43,7 @@ collections:
     output: true
     permalink: /projects/:name/
   seo_pages:
-    output: true
-    permalink: /guides/:path/
+    output: false
 
 # Default front matter for different content types
 # This saves you from repeating the same settings in every file
@@ -44,13 +54,15 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "Esa Hakulinen"
+      author: "Admin"
+      image: /assets/images/og/blog-default.webp
   # Projects
   - scope:
       path: "_projects"
       type: "projects"
     values:
       layout: "project"
+      image: /assets/images/og/projects-default.webp
   # SEO Pages
   - scope:
       path: "_seo_pages"
@@ -64,15 +76,26 @@ defaults:
     values:
       layout: "default"
 
-# Plugins (these work with GitHub Pages)
+# Plugins
 plugins:
   - jekyll-feed
+  - jekyll-polyglot
   - jekyll-seo-tag
   - jekyll-sitemap
+
+# Multi-language configuration (jekyll-polyglot)
+languages: ["fi", "en"]
+default_lang: "fi"
+exclude_from_localization: ["javascript", "images", "css", "assets", "sitemap.xml", "favicon.ico", "site.webmanifest", "CNAME"]
+parallel_localization: true
+
+sass:
+  sourcemap: never
 
 # Exclude files from the build
 exclude:
   - README.md
+  - CLAUDE.md
   - Gemfile
   - Gemfile.lock
   - node_modules
@@ -90,11 +113,13 @@ exclude:
 # These help search engines understand your site
 
 # For social media sharing
-twitter:
-  card: summary_large_image
+# Uncomment and add twitter username when ready:
+# twitter:
+#   username: yourtwitterhandle
+#   card: summary_large_image
 
 # For Google and other search engines
 google_analytics: ""  # Add your GA tracking ID when ready
 
 # Open Graph defaults
-og_image: "/assets/images/og-default.png"
+og_image: "/assets/images/og/og-default.webp"

@@ -1,0 +1,31 @@
+---
+layout: default
+title: Projects
+description: Things I've built.
+image: /assets/images/pages/projects.jpg
+permalink: /projects/
+twin: /projektit/
+lang: en
+---
+
+{% assign strings = site.data[site.active_lang].strings %}
+
+{% include organisms/page-header.html title=strings.projects_title description=strings.projects_description %}
+
+<section class="section">
+  <div class="container-wide">
+    {% assign lang_projects = site.projects | where: "lang", site.active_lang | sort: 'date' | reverse %}
+    {% if lang_projects.size > 0 %}
+    <div class="project-grid">
+      {% for project in lang_projects %}
+        {% include organisms/project-card.html project=project %}
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="card">
+      <h3>{{ strings.projects_empty_title }}</h3>
+      <p>{{ strings.projects_empty_text }}</p>
+    </div>
+    {% endif %}
+  </div>
+</section>

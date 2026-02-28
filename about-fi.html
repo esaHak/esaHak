@@ -1,0 +1,56 @@
+---
+layout: default
+title: Tietoa
+description: Esa Hakulinen on digitaalinen markkinoija. Tämä on hänen portfoliosivustonsa.
+image: /assets/images/pages/about.jpg
+permalink: /tietoa/
+twin: /about/
+lang: fi
+---
+
+{% comment %} ProfilePage schema for Google knowledge panels {% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "description": {{ site.author.bio | jsonify }},
+    "url": "{{ '/about/' | absolute_url }}"{% if site.author.avatar %},
+    "image": "{{ site.author.avatar | absolute_url }}"{% endif %}{% if site.social.links %},
+    "sameAs": {{ site.social.links | jsonify }}{% endif %},
+    "jobTitle": "Digital Marketer",
+    "knowsAbout": ["Digital Marketing", "SEO", "Content Marketing", "Marketing Technology"]
+  }
+}
+</script>
+
+{% assign strings = site.data[site.active_lang].strings %}
+
+{% include organisms/page-header.html title=strings.about_title %}
+
+<section class="section">
+  <div class="container-wide">
+    <p>
+      Olen digitaalinen markkinoija. Käytän tekoälykoodaustyökaluja ideoiden muuttamiseen toimiviksi tuotteiksi, ja tämä sivusto on paikka, jossa dokumentoin mitä rakennan ja mitä opin rakentamisesta.
+    </p>
+
+    <h2>Tämä sivusto</h2>
+
+    <p>
+      Projekteja ja kirjoituksia, joita olen koonnut. Jos tekninen toteutus kiinnostaa, sivustosta on oma <a href="{{ '/projektit/portfolio-website/' | relative_url }}">projektikuvaus</a>.
+    </p>
+
+    <h3>Ota yhteyttä</h3>
+
+    <ul>
+      {% if site.author.linkedin %}
+      <li><a href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>
+      {% endif %}
+      {% if site.author.github %}
+      <li><a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</section>

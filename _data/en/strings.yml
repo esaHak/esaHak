@@ -1,0 +1,78 @@
+# English UI strings
+# Used by templates via site.data[site.active_lang].strings
+
+# Navigation
+nav_home: "Home"
+nav_blog: "Blog"
+nav_projects: "Projects"
+nav_about: "About"
+nav_url_home: "/"
+nav_url_blog: "/blog/"
+nav_url_projects: "/projects/"
+nav_url_about: "/about/"
+
+# Language switcher
+lang_switch: "Suomeksi"
+
+# Homepage
+hero_greeting: "Hi,"
+hero_name: "I'm Esa Hakulinen"
+hero_subtitle_1: "Digital marketer."
+hero_subtitle_2: "Welcome to my portfolio site, where I share projects and ideas."
+hero_link_projects: "Projects"
+hero_link_blog: "Blog"
+
+section_latest_projects: "Latest projects"
+section_latest_projects_sub: "What I'm building and what I'm learning from it"
+section_recent_posts: "Recent posts"
+section_recent_posts_sub: "Notes on marketing, tools, and things I've figured out along the way"
+section_about: "About this site"
+section_about_sub: "What this is and how I work"
+section_about_text: "If you want to know more about the site, start here."
+
+btn_view_projects: "View projects"
+btn_read_all_posts: "Read all posts"
+btn_about: "About"
+
+# Status badges
+status_live: "Live"
+status_progress: "In progress"
+status_experiment: "Experiment"
+status_archived: "Archived"
+
+# Blog page
+blog_title: "Blog"
+blog_description: "Posts on digital marketing, tools, and projects."
+blog_empty_title: "No posts yet"
+blog_empty_text: "Check back soon for new content!"
+
+# Projects page
+projects_title: "Projects"
+projects_description: "Things I've built."
+projects_empty_title: "Projects coming soon"
+projects_empty_text: "I'm working on documenting my current experiments. Check back soon!"
+
+# About page
+about_title: "About"
+
+# Footer
+footer_navigate: "Navigate"
+footer_connect: "Connect"
+
+# Project layout
+project_started: "Started"
+project_key_learnings: "Key learnings"
+project_results: "Results"
+project_view_live: "View live"
+project_github: "GitHub"
+project_demo: "Interactive demo"
+
+# Breadcrumbs
+breadcrumb_home: "Home"
+breadcrumb_blog: "Blog"
+breadcrumb_projects: "Projects"
+breadcrumb_guides: "Guides"
+
+# Post
+written_by: "Written by"
+min_read: "min read"
