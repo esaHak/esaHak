@@ -48,11 +48,11 @@ Toisaalta en keksinyt kaikkea uudelleen. Sivusto käyttää vakio-Jekyll-lisäos
 
 ## SEO-toteutus
 
-Sivusto käyttää kolmea Jekyll-lisäosaa hakukoneoptimointiin:
+Sivusto käyttää kahta Jekyll-pluginia hakukoneoptimointiin:
 
-**jekyll-seo-tag** generoi meta-tagit, Open Graph -tagit, Twitter-kortit, canonical-URL:t ja JSON-LD-rakenteisen datan automaattisesti front matterista. Head-templaatissa on vain `{% raw %}{% seo %}{% endraw %}` manuaalisten meta-tagien sijaan, mikä välttää yleisen ongelman päällekkäisistä tageista.
+**jekyll-seo-tag** generoi meta-tagit, og -tagit, Twitter-kortit, canonical-URL:t ja JSON-LD-strukturoidun datan automaattisesti. Head-template kaappaa lisäosan tuotoksen ja korjaa oikean kieli slugin englanninkielisille sivuille.
 
-**jekyll-sitemap** generoi XML-sivukartan. **jekyll-feed** hoitaa RSS-syötteen.
+XML-sitemap on räätälöity Liquid-template lisäosan sijaan, koska jekyll-sitemap ei toimi polyglotin kanssa (se tulostaa kaikki sivut ilman kielislugeja). Custom template hoitaa kieliversioiden URL-osoitteet ja hreflang-vaihtoehdot. **jekyll-feed** hoitaa RSS-syötteen.
 
 Lisäosa-tuotannon päälle sivustolla on räätälöityjä JSON-LD-skeemoja tietyille sivutyypeille. Projektisivut saavat `CreativeWork`-skeeman, joka sisältää teknologiapinon, GitHub-URL:n ja projektin tilan. Tietoa-sivu saa `ProfilePage`-skeeman rakenteisella henkilödatalla. Kaikki sivut, joilla on murupolku, saavat `BreadcrumbList`-skeeman, joka heijastaa visuaalista murupolkua.
 
