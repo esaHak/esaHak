@@ -48,11 +48,11 @@ That said, I didn't reinvent everything. The site uses standard Jekyll plugins f
 
 ## SEO setup
 
-The site uses three Jekyll plugins for SEO:
+The site uses two Jekyll plugins for SEO:
 
-**jekyll-seo-tag** generates meta tags, Open Graph tags, Twitter cards, canonical URLs, and JSON-LD structured data automatically from front matter. The head template contains only `{% raw %}{% seo %}{% endraw %}` instead of manual meta tags, which avoids the common problem of duplicate tags.
+**jekyll-seo-tag** generates meta tags, Open Graph tags, Twitter cards, canonical URLs, and JSON-LD structured data automatically from front matter. The head template captures the plugin output and patches it for the correct language prefix on English pages.
 
-**jekyll-sitemap** generates the XML sitemap. **jekyll-feed** handles the RSS feed.
+The XML sitemap is a custom Liquid template rather than a plugin, because jekyll-sitemap does not work with polyglot (it outputs all pages without language prefixes). The custom template handles language-prefixed URLs and hreflang alternates. **jekyll-feed** handles the RSS feed.
 
 On top of the plugin output, the site has custom JSON-LD schema blocks for specific page types. Project pages get `CreativeWork` schema that captures the tech stack, GitHub URL, and project status. The about page gets `ProfilePage` schema with structured person data. All pages with breadcrumbs get `BreadcrumbList` schema that mirrors the visual breadcrumb navigation.
 
