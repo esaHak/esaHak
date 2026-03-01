@@ -44,6 +44,8 @@ sitemap: false
     <loc>{{ doc_url | xml_escape }}</loc>
     {%- if doc.date %}
     <lastmod>{{ doc.date | date_to_xmlschema }}</lastmod>
+    {%- else %}
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
     {%- endif %}
     {%- if doc.twin %}
     {%- if doc_lang == site.default_lang -%}
@@ -77,6 +79,8 @@ sitemap: false
     <loc>{{ twin_url | xml_escape }}</loc>
     {%- if doc.date %}
     <lastmod>{{ doc.date | date_to_xmlschema }}</lastmod>
+    {%- else %}
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
     {%- endif %}
     <xhtml:link rel="alternate" hreflang="{{ twin_lang }}" href="{{ twin_url | xml_escape }}" />
     <xhtml:link rel="alternate" hreflang="{{ doc_lang }}" href="{{ doc_url | xml_escape }}" />
