@@ -112,12 +112,6 @@ exclude:
 # =============================================================================
 # These help search engines understand your site
 
-# For social media sharing
-# Uncomment and add twitter username when ready:
-# twitter:
-#   username: yourtwitterhandle
-#   card: summary_large_image
-
 # For Google and other search engines
 google_analytics: ""  # Add your GA tracking ID when ready
 
