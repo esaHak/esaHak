@@ -95,6 +95,20 @@ guides_coming_soon_text: "I'm working on comprehensive guides for various topics
 about_this_site: "This site"
 about_get_in_touch: "Get in touch"
 
+# Month names
+month_1: "January"
+month_2: "February"
+month_3: "March"
+month_4: "April"
+month_5: "May"
+month_6: "June"
+month_7: "July"
+month_8: "August"
+month_9: "September"
+month_10: "October"
+month_11: "November"
+month_12: "December"
+
 # 404 page
 error_title: "Page not found"
 error_text: "The page you're looking for doesn't exist or has been moved."

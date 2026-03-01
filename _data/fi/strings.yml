@@ -95,6 +95,20 @@ guides_coming_soon_text: "Työstän parhaillaan kattavia oppaita eri aiheista. T
 about_this_site: "Tämä sivusto"
 about_get_in_touch: "Ota yhteyttä"
 
+# Month names
+month_1: "tammikuu"
+month_2: "helmikuu"
+month_3: "maaliskuu"
+month_4: "huhtikuu"
+month_5: "toukokuu"
+month_6: "kesäkuu"
+month_7: "heinäkuu"
+month_8: "elokuu"
+month_9: "syyskuu"
+month_10: "lokakuu"
+month_11: "marraskuu"
+month_12: "joulukuu"
+
 # 404 page
 error_title: "Sivua ei löydy"
 error_text: "Etsimääsi sivua ei ole olemassa tai se on siirretty."
