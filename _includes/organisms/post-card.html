@@ -17,6 +17,6 @@ Parameters:
 
   <div class="post-card-content">
     <h2 class="post-card-title">{{ include.post.title }}</h2>
-    <time class="post-card-date" datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%B %d, %Y" }}</time>
+    <time class="post-card-date" datetime="{{ include.post.date | date_to_xmlschema }}">{% include atoms/localized-date.html date=include.post.date %}</time>
   </div>
 </a>

@@ -19,7 +19,7 @@ layout: default
       {% endif %}
 
       {% if page.last_updated %}
-      <p class="seo-updated">{{ strings.seo_last_updated }}: {{ page.last_updated | date: "%B %d, %Y" }}</p>
+      <p class="seo-updated">{{ strings.seo_last_updated }}: {% include atoms/localized-date.html date=page.last_updated %}</p>
       {% endif %}
     </div>
   </header>

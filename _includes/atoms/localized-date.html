@@ -1,0 +1,16 @@
+{% comment %}
+Localized Date Atom
+Outputs a localized date string using month names from strings.yml.
+Usage: {% include atoms/localized-date.html date=post.date %}
+Parameters:
+  - date: A date object (required)
+  - format: "long" (default, "20. tammikuu 2025") or "short" ("tammikuu 2025")
+{% endcomment %}
+{% assign strings = site.data[site.active_lang].strings %}
+{% assign d = include.date | date: "%-d" %}
+{% assign m = include.date | date: "%-m" %}
+{% assign y = include.date | date: "%Y" %}
+{% assign month_key = "month_" | append: m %}
+{% assign month_name = strings[month_key] %}
+{% assign fmt = include.format | default: "long" %}
+{% if fmt == "short" %}{{ month_name }} {{ y }}{% else %}{{ d }}. {{ month_name }} {{ y }}{% endif %}
