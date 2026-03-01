@@ -9,10 +9,30 @@
 <meta name="theme-color" content="#2a2826">
 
 <!-- Hreflang tags for multi-language SEO -->
-{{ I18n_Headers }}
+{% assign current_lang = page.lang | default: site.default_lang %}
+{% if page.twin %}
+  {% if current_lang == site.default_lang %}
+    {% assign this_url = page.url | absolute_url %}
+    {% assign twin_url = page.twin | prepend: "/en" | absolute_url %}
+    {% assign twin_lang = "en" %}
+  {% else %}
+    {% assign this_url = page.url | prepend: "/en" | absolute_url %}
+    {% assign twin_url = page.twin | absolute_url %}
+    {% assign twin_lang = site.default_lang %}
+  {% endif %}
+  <link rel="alternate" hreflang="{{ current_lang }}" href="{{ this_url }}" />
+  <link rel="alternate" hreflang="{{ twin_lang }}" href="{{ twin_url }}" />
+{% endif %}
 
 <!-- Jekyll SEO Tag (title, description, OG, Twitter, canonical, JSON-LD) -->
-{% seo %}
+{% capture seo_output %}{% seo %}{% endcapture %}
+{% if site.active_lang != site.default_lang %}
+  {% assign wrong_base = site.url | append: page.url %}
+  {% assign right_base = site.url | append: "/" | append: site.active_lang | append: page.url %}
+  {{ seo_output | replace: wrong_base, right_base }}
+{% else %}
+  {{ seo_output }}
+{% endif %}
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
