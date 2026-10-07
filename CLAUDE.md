@@ -6,12 +6,9 @@ Bilingual (Finnish + English) personal site built with Jekyll and jekyll-polyglo
 
 Way of working (shared by all projects): https://github.com/esaHak/handbook/blob/main/CONVENTION.md
 
-- Status lives in GitHub issues (`esaHak/esaHak`), never in files. Session start: `gh issue list --state open` (or the issue the user names).
-- One issue, one branch `issue-<n>-<slug>`, one PR with `Closes #<n>`. Commits reference `#<n>`.
-- Never push to `main`; the owner merges. `main` deploys to GitHub Pages. `staging` is the optional working branch (see Rules below).
-- New work discovered mid-task: `gh issue create` and stay on scope. Blocked: comment what is needed, add `blocked`, stop.
-- Settled decisions go in `docs/DECISIONS.md` as append-only `D-NNN` entries, in the PR that implements them (create the file with the first decision).
-- Content ideas and content work use the `type:content` label; the portfolio loop is described in the handbook under `portfolio/`.
+- GitHub issues are disabled on this repo, and the site is a candidate for migration to the handbook's default stack (Astro on Cloudflare). Until that is decided, site work is tracked as issues in `esaHak/handbook`.
+- Branch `issue-<n>-<slug>`, one PR with a reference to the issue. Never push to `main`; the owner merges. `main` deploys to GitHub Pages.
+- Do not write status into files. Settled decisions go in the handbook's decision flow, or `docs/DECISIONS.md` here as append-only `D-NNN` entries.
 
 ## Commands
 
