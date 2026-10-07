@@ -2,6 +2,14 @@
 
 Bilingual (Finnish + English) personal site built with Jekyll and jekyll-polyglot, deployed via GitHub Actions to GitHub Pages. Framed as a "kotisivu" (personal site), not a portfolio. Projects and thoughts on digital marketing.
 
+## Workflow
+
+Way of working (shared by all projects): https://github.com/esaHak/handbook/blob/main/CONVENTION.md
+
+- GitHub issues are disabled on this repo, and the site is a candidate for migration to the handbook's default stack (Astro on Cloudflare). Until that is decided, site work is tracked as issues in `esaHak/handbook`.
+- Branch `issue-<n>-<slug>`, one PR with a reference to the issue. Never push to `main`; the owner merges. `main` deploys to GitHub Pages.
+- Do not write status into files. Settled decisions go in the handbook's decision flow, or `docs/DECISIONS.md` here as append-only `D-NNN` entries.
+
 ## Commands
 
 - `bundle install`: Install Ruby dependencies
